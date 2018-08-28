@@ -1,13 +1,13 @@
 {
-  "name": "STARTER",
+  "name": "sass-updater",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sass Updater",
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "latest",
-    "gulp": "latest",
     "del": "latest",
+    "gulp": "latest",
     "gulp-autoprefixer": "latest",
     "gulp-imagemin": "latest",
     "gulp-include": "latest",
@@ -17,7 +17,8 @@
     "gulp-sourcemaps": "latest",
     "gulp-uglify": "latest",
     "gutil": "latest",
-    "gulp-compass": "latest"
+    "gulp-compass": "latest",
+    "susy": "latest"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

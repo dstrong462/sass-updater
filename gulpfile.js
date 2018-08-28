@@ -20,10 +20,16 @@ var config = {
 		options: {
 			sass: {
 				outputStyle: 'compressed', // nested, expanded, compact, compressed
-				precision: 10 // level of precision on numerical values (i.e. 10.0 vs 10.0000001)
+				precision: 5
 			},
 			autoprefixer: {
-				browsers: ['last 2 versions', '> 3%', 'Firefox ESR'],
+				browsers: [	'last 2 Chrome versions',
+							'last 2 Edge versions',
+							'last 2 Firefox versions',
+							'last 2 iOS versions',
+							'last 2 Safari versions',
+							'> 2% in US',
+							'IE 11' ],
 				cascade: false
 			}
 		}
@@ -54,13 +60,13 @@ gulp.task('styles', function() {
 		// .pipe(notify('Sass Compilation Complete'));
 });
 
-// Compass
+// Compass for older projects. Run with "gulp compass"
 gulp.task('compass', ['clean'], function() {
 	gulp.src(config.styles.src)
 	.pipe(compass({
-		relative: true,
+		sourcemap: true,
 		style: 'compressed',
-		css: 'COMPASS',
+		css: 'COMPASS'
 	}))
 });
 

@@ -1,28 +1,28 @@
 {
-  "name": "sass-updater",
-  "version": "1.0.0",
-  "description": "Sass Updater",
-  "main": "gulpfile.js",
-  "dependencies": {},
-  "devDependencies": {
-    "browser-sync": "latest",
-    "del": "latest",
-    "gulp": "latest",
-    "gulp-autoprefixer": "latest",
-    "gulp-imagemin": "latest",
-    "gulp-include": "latest",
-    "gulp-notify": "latest",
-    "gulp-rename": "latest",
-    "gulp-sass": "latest",
-    "gulp-sourcemaps": "latest",
-    "gulp-uglify": "latest",
-    "gutil": "latest",
-    "gulp-compass": "latest",
-    "susy": "latest"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "TriMark Digital",
-  "license": "ISC"
+    "name": "sass-updater",
+    "version": "1.0.0",
+    "description": "Sass Updater",
+    "main": "gulpfile.js",
+    "dependencies": {},
+    "devDependencies": {
+        "browser-sync": "latest",
+        "del": "latest",
+        "gulp": "latest",
+        "gulp-autoprefixer": "latest",
+        "gulp-imagemin": "latest",
+        "gulp-include": "latest",
+        "gulp-notify": "latest",
+        "gulp-rename": "latest",
+        "gulp-sass": "latest",
+        "gulp-sourcemaps": "latest",
+        "gulp-uglify": "latest",
+        "gutil": "latest",
+        "gulp-compass": "latest",
+        "susy": "latest"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "TriMark Digital",
+    "license": "ISC"
 }

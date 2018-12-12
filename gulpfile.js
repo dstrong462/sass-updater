@@ -15,7 +15,7 @@ var compass = require('gulp-compass');
 var config = {
 	styles: {
 		src: 'sass/**/*.scss',
-		dest: 'OUTPUT/css/',
+		dest: 'css',
 		sourcemapDest: '.', // i.e. current directory
 		options: {
 			sass: {
@@ -36,7 +36,7 @@ var config = {
 	},
 	scripts: {
 		src: 'js/*.js',
-		dest: 'OUTPUT/min/',
+		dest: 'js/min/',
 		sourcemapDest: '.', // i.e. current directory
 		rename: {
 			suffix: '-min'

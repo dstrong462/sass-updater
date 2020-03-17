@@ -1,0 +1,334 @@
+
+// ===== SHOPPING CART - EMPTY
+// ================================================================================
+
+.page-cart {
+	max-width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+.page-cart-empty {
+	padding: 100px 0;
+	text-align: center;
+	.title {
+		margin-bottom: 0;
+	}
+}
+
+
+
+// ===== SHOPPING CART - PRODUCT TABLE
+// ================================================================================
+
+.cart-table {
+	width: 100%;
+	margin-bottom: 20px;
+	border: solid $color-gray-lite 1px;
+	border-collapse: separate;
+	border-radius: 3px;
+	col {
+		width: 1px;
+		&.cart-col-product {
+			width: 100%;
+		}
+	}
+	td, th {
+		padding: 12px;
+		font: 400 14px/1 $font-sans-serif;
+		text-align: left;
+		vertical-align: top;
+	}
+	thead {
+		th {
+			background: $color-smoke;
+			border-bottom: solid $color-gray-lite 1px;
+			color: $color-slate;
+			font: normal 12px/1 $font-serif;
+			text-transform: uppercase;
+			&:first-child {
+				border-top-left-radius: 2px;
+			}
+			&:last-child {
+				border-top-right-radius: 2px;
+			}
+		}
+	}
+	tfoot {
+		td {
+			padding-bottom: 10px;
+			padding-top: 10px;
+			background: $color-smoke;
+			border-top: solid $color-gray-lite 1px;
+			&:first-child {
+				border-bottom-left-radius: 2px;
+			}
+			&:last-child {
+				border-bottom-right-radius: 2px;
+			}
+		}
+		.btn {
+			margin: 2px 0;
+			border: 0;
+		}
+	}
+	tbody {
+		td {
+			border-bottom: solid $color-smoke 1px;
+			color: $color-slate;
+			font: 700 14px/1.25 $font-sans-serif;
+		}
+		tr:last-child td {
+			border-bottom-width: 0;
+		}
+	}
+	.product-wrapper {
+		overflow: hidden;
+	}
+	.cart-col-product {
+		.img {
+			float: left;
+			a, img {
+				display: block;
+			}
+		}
+		.details {
+			margin-left: 90px;
+		}
+		.name {
+			display: block;
+			margin-bottom: 3px;
+			color: inherit;
+			text-decoration: none;
+			transition: color 0.2s ease;
+		}
+		a.name:hover {
+			color: $color-red;
+		}
+		.specs {
+			color: $color-gray;
+			font-size: 12px;
+			font-weight: 400;
+			.label {
+				display: inline-block;
+				margin-right: 5px;
+			}
+		}
+	}
+	.remove-link {
+		position: relative;
+		display: inline-block;
+		margin-top: 5px;
+		padding-left: 18px;
+		color: darken($color-gray, 5%);
+		font-size: 9px;
+		letter-spacing: 1px;
+		line-height: 17px;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: color 0.2s ease;
+		&:before {
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: block;
+			height: 14px;
+			width: 14px;
+			background: $color-gray;
+			border-radius: 50%;
+			color: #FFFFFF;
+			content: '\00D7';
+			font: bold 12px/14px Arial, Helvetica, sans-serif;
+			letter-spacing: 0;
+			text-align: center;
+			transition: background 0.2s ease;
+		}
+		&:hover {
+			color: $color-red-lite;
+			&:before {
+				background-color: $color-red-lite;
+			}
+		}
+	}
+	.cart-col-qty {
+		input {
+			display: inline-block !important;
+			width: 35px !important;
+			padding: 5px 0;
+			border-color: $color-gray-lite;
+			font: 400 16px/1 $font-sans-serif;
+			text-align: center;
+		}
+	}
+	.cart-col-price {
+		text-align: right;
+		white-space: nowrap;
+	}
+	.cart-col-subtotal {
+		text-align: right;
+		white-space: nowrap;
+	}
+	.cart-controls {
+		text-align: right;
+	}
+}
+@include bp(max-width $bp-col4-max) {
+	.cart-table {
+		thead {
+			display: none;
+		}
+		> tbody {
+			td {
+				display: block;
+				float: left\9; // IE9 fix/hack to make the cell display:block work
+				width: 100%\9; // IE9 fix/hack to make the cell display:block work
+				border-bottom-width: 0;
+				text-align: left !important;
+				&:last-child {
+					border-bottom-width: 1px;
+				}
+				&[data-cart-label] {
+					padding-top: 2px;
+					padding-bottom: 2px;
+					font-size: 13px;
+					&:before {
+						display: inline-block;
+						min-width: 85px;
+						padding-right: 10px;
+						content: attr(data-cart-label) ":";
+						font-weight: normal;
+						text-align: right;
+					}
+				}
+				&.cart-col-qty:before {
+					position: relative;
+					top: -8px;
+				}
+				&.cart-col-subtotal {
+					padding-bottom: 12px;
+				}
+			}
+		}
+		tfoot {
+			.btn {
+				padding-left: 20px;
+				padding-right: 20px;
+				font-size: 12px;
+			}
+		}
+		.product-wrapper {
+			padding-bottom: 12px;
+			border-bottom: solid $color-smoke 1px;
+		}
+	}
+}
+@include bp($bp-col12) {
+	.cart-table-wrapper-outer {
+		float: left;
+		width: 100%;
+		margin-right: -280px;
+	}
+	.cart-table-wrapper-inner {
+		margin-right: 280px;
+	}
+}
+
+
+
+// ===== SHOPPING CART - COLLATERAL
+// ================================================================================
+
+@include bp(max-width $bp-col4-max) {
+	.cart-collaterals {
+		max-width: 480px;
+		margin: 0 auto;
+	}
+}
+@include bp($bp-col12) {
+	.cart-collaterals {
+		float: right;
+		width: 280px;
+		padding-left: 20px;
+	}
+}
+
+
+
+// ===== SHOPPING CART - DISCOUNT / COUPON CODE
+// ================================================================================
+
+.cart-discount {
+	margin-bottom: 20px;
+	padding: 12px;
+	background: $color-smoke;
+	border: solid $color-gray-lite 1px;
+	border-radius: 3px;
+	font: normal 16px/1.5 $font-sans-serif;
+	.cta {
+		display: block;
+		margin-bottom: 4px;
+		color: $color-slate;
+	}
+	input {
+		width: 100%;
+	}
+	.button-set {
+		margin-top: 8px;
+	}
+}
+@include bp($bp-col8 $bp-col8-max) {
+	.cart-discount {
+		float: left;
+		width: 45%;
+	}
+}
+
+
+
+// ===== SHOPPING CART - CART TOTALS
+// ================================================================================
+
+.cart-totals {
+	padding: 16px 20px;
+	background: $color-smoke;
+	border: solid $color-gray-lite 1px;
+	border-radius: 3px;
+	color: $color-slate;
+	font: 400 14px/1.25 $font-sans-serif;
+	text-align: right;
+	.cart-totals-table {
+		float: right;
+	}
+	td {
+		padding: 4px 0;
+		vertical-align: top;
+	}
+	.label {
+		padding-right: 10px;
+	}
+	tfoot td {
+		padding-top: 6px;
+		font-size: 18px;
+		font-weight: 700;
+	}
+}
+@include bp($bp-col8 $bp-col8-max) {
+	.cart-totals-wrapper {
+		float: right;
+		width: 55%;
+		padding-left: 20px;
+	}
+}
+
+
+
+// ===== SHOPPING CART - CHECKOUT BUTTON
+// ================================================================================
+
+.cart-totals-wrapper {
+	.btn-checkout {
+		width: 100%;
+		margin-top: 20px;
+	}
+}

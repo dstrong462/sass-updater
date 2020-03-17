@@ -1,0 +1,822 @@
+// ===== FLAGSHIP Location Page
+// ====================================================
+
+.pg-locations-flagship {
+
+    section {
+        padding: 50px 0;
+        @include bp($bp-col12) {
+            padding: 85px 0;
+        }
+    }
+
+    .btn {
+        font-weight: normal;
+        line-height: 2.25;
+        @include bp($bp-col12) {
+            font-size: 15px;
+        }
+        @include bp($bp-col16) {
+            font-size: 16px;
+        }
+    }
+
+    // Main hero image and title
+    .hero {
+        position: relative;
+		height: 0;
+        width: 100%;
+		padding-bottom: percentage(436/1490);
+		background: url('https://www.baileybox.com/wp-content/uploads/2018/03/cameron-village-desktop.jpg') center center no-repeat;
+		background-size: cover;
+		overflow: hidden;
+		&:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background: linear-gradient(30deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 85%);
+			content: '';
+			z-index: 2;
+		}
+		video {
+			position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    height: auto;
+		    width: auto;
+		    max-height: 100vw;
+		    max-width: none;
+		    min-height: calc(100% + 2px);
+		    min-width: 100%;
+		    transform: translate(-50%, -50%);
+		    z-index: 1;
+		}
+        @include bp(max-width $bp-col4-max) {
+        	padding-bottom: 56.25%;
+        	video {
+        		display: none;
+        	}
+        }
+        .hero-contents {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            z-index: 3;
+            .title {
+                position: relative;
+                font: 10vw/1.2 $font-cursive;
+                padding-bottom: 4px;
+                margin-bottom: 15px;
+                @include bp($bp-col8) {
+                    font-size: 40px;
+                }
+                @include bp($bp-col12) {
+                    font-size: 50px;
+                }
+                @include bp($bp-col16) {
+                    font-size: 60px;
+                }
+                &:after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 50%;
+                    max-width: 200px;
+                    height: 2px;
+                    background-color: rgba(white, 0.5);
+                }
+            }
+            .subtitle {
+                font-size: 5vw;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                @include bp($bp-col8) {
+                    font-size: 19px;
+                }
+                @include bp($bp-col12) {
+                    font-size: 26px;
+                }
+                @include bp($bp-col16) {
+                    font-size: 36px;
+                }
+            }
+        }
+    }
+
+    // Container for .hero-info and .hero-map
+    .hero-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        @include bp($bp-col8) {
+            flex-direction: row;
+            align-items: stretch;
+        }
+    }
+
+    // Location details
+    .hero-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        width: 100%;
+        color: $color-slate;
+        background-color: $color-smoke;
+        padding: 40px 20px;
+
+        @include bp($bp-col8) {
+            width: 50%;
+        }
+        @include bp($bp-col12) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 70%;
+            padding: 60px 40px;
+        }
+        @include bp($bp-col16) {
+            width: 50%;
+            padding: 75px 65px;
+        }
+
+        .store-name {
+            position: relative;
+            width: 100%;
+            font: 700 14px/1.5 $font-sans-serif;
+            text-transform: uppercase;
+            padding-bottom: 8px;
+            margin-bottom: 30px;
+
+            @include bp($bp-col12) {
+                font-size: 20px;
+                padding-bottom: 11px;
+                margin-bottom: 45px;
+            }
+            @include bp($bp-col16) {
+                font-size: 24px;
+                padding-bottom: 13px;
+            }
+
+            &:after {
+                position: absolute;
+                content: '';
+                bottom: 0;
+                left: 0;
+                width: 75%;
+                max-width: 400px;
+                height: 3px;
+                background-color: $color-slate;
+            }
+
+            span {
+                display: block;
+                color: $color-red;
+                font-family: $font-serif;
+                font-weight: normal;
+                text-transform: none;
+                @include bp($bp-col12) {
+                    display: initial;
+                }
+            }
+        }
+
+        .info-column {
+            padding-right: 25px;
+
+            &:not(:last-of-type) {
+                margin-bottom: 30px;
+            }
+
+            @include bp($bp-col12) {
+                width: auto;
+                padding-right: 50px;
+            }
+
+            .title {
+                color: $color-red;
+                font-family: $font-sans-serif;
+                font-size: 14px;
+                line-height: 1;
+                font-weight: normal;
+                text-transform: uppercase;
+                margin-bottom: 15px;
+                @include bp($bp-col12) {
+                    font-size: 16px;
+                    margin-bottom: 20px;
+                }
+            }
+            .text {
+                font-size: 14px;
+                line-height: 1.5;
+                @include bp($bp-col12) {
+                    font-size: 16px;
+                }
+            }
+            .phone {
+                cursor: pointer;
+                display: block;
+                font-weight: bold;
+                background: url('../img/icon-phone-red.png') no-repeat left/auto 70%;
+                padding-left: 25px;
+                transition: color 0.2s;
+                @include bp($bp-col12) {
+                    font-size: 16px;
+                }
+                &:hover {
+                    color: $color-red;
+                }
+            }
+
+            // Move Management to end of row on larger screens
+            &.management {
+                @include bp($bp-col12) {
+                    order: 1;
+                }
+            }
+        }
+    }
+
+    // Location map and directions
+    .hero-map {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        background: url('../img/location-pages/img-map-cameron-village.jpg') no-repeat center/auto 100%;
+        transition: background-size 0.5s ease;
+        &:hover {
+            background-size: auto 103%;
+        }
+        @include bp($bp-col8) {
+            width: 50%;
+            height: auto;
+        }
+        @include bp($bp-col12) {
+            width: 30%;
+        }
+        @include bp($bp-col16) {
+            width: 50%;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 100%;
+            text-align: center;
+            img {
+                display: block;
+                max-width: 34px;
+                margin: 0 auto 20px auto;
+            }
+        }
+    }
+
+    // Information about the store with icons and stats
+    .about-store {
+        .row {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 20px;
+            @include bp($bp-col8) {
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex-end;
+            }
+
+            .stat {
+                color: $color-slate-dark;
+                font-size: 18px;
+                line-height: 1.25;
+                text-align: center;
+                &:not(:last-of-type) {
+                    margin-bottom: 35px;
+                }
+                @include bp($bp-col8) {
+                    padding: 0 20px;
+                    margin-bottom: 35px;
+                }
+                @include bp($bp-col12) {
+                    font-size: 22px;
+                    padding: 0 30px;
+                    margin-bottom: 0 !important;
+                }
+                @include bp($bp-col16) {
+                    font-size: 25px;
+                }
+                img {
+                    display: block;
+                    margin: 0 auto 10px auto;
+                }
+            }
+        }
+    }
+
+    // Featured image grid section
+    .image-grid {
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        padding: 0;
+        @include bp($bp-col8) {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            width: 100%;
+            @include bp($bp-col8) {
+                width: 50%;
+            }
+            @include bp($bp-col16) {
+                width: 33.333%;
+            }
+
+            // Spread the third column when using 2 column display
+            &:nth-of-type(3) {
+                @media screen and (min-width: $bp-col8) and (max-width: $bp-col12-max) {
+                    display: none;
+                }
+            }
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                overflow: hidden;
+                margin-bottom: 20px;
+
+                @include bp($bp-col8) {
+                    border: 10px solid white;
+                    margin: 0;
+                }
+
+                &.image {
+                    flex: 1 1 auto;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                    padding-bottom: 66%;
+
+                    // Firefox fixes
+                    @-moz-document url-prefix() {
+                        padding-bottom: 58vw;
+                        @include bp($bp-col8) {
+                            padding-bottom: 29vw;
+                        }
+                        @include bp($bp-col12) {
+                            padding-bottom: 19vw;
+                        }
+                    }
+
+                    // For portrait images
+                    &.tall {
+                        padding-bottom: 133%;
+                        // Firefox fixes
+                        @-moz-document url-prefix() {
+                            padding-bottom: 116vw;
+                            @include bp($bp-col8) {
+                                padding-bottom: 58vw;
+                            }
+                            @include bp($bp-col8) {
+                                padding-bottom: 39vw;
+                            }
+                        }
+                    }
+                }
+
+                &.hide-on-mobile {
+                    @include bp(max-width $bp-col4-max) {
+                        display: none;
+                    }
+                }
+            }
+
+            // Main content box with text
+            .text-content {
+                color: $color-slate-dark;
+                text-align: center;
+                background-color: #f4f4f4;
+                padding: 30px 20px;
+                @include bp($bp-col8) {
+                    padding: 50px 30px;
+                }
+                @include bp($bp-col12) {
+                    padding: 60px 40px;
+                }
+                @include bp($bp-col18) {
+                    padding: 120px 80px;
+                }
+
+                .title {
+                    font: 19px/1.1 $font-serif;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    @include bp($bp-col8) {
+                        font-size: 21px;
+                    }
+                    @include bp($bp-col12) {
+                        font-size: 32px;
+                    }
+                }
+
+                .diamond {
+                    display: inline-block;
+                    position: relative;
+                    margin: 15px auto;
+                    &:before,
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: -10px;
+                        transform: translate(-100%,-50%);
+                        width: 50px;
+                        height: 2px;
+                        background-color: #a09da0;
+                    }
+                    &:after {
+                        left: auto;
+                        right: -10px;
+                        transform: translate(100%,-50%);
+                    }
+                    svg {
+                        width: 100%;
+                        max-width: 28px;
+                        fill: $color-slate-dark;
+                    }
+                }
+
+                .text {
+                    font: 14px/2 $font-sans-serif;
+                    @include bp($bp-col8) {
+                        font-size: 16px;
+                    }
+                    @include bp($bp-col12) {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    // Featured Designers section
+    .featured-designers {
+        .large-image {
+            position: relative;
+            width: 100%;
+            height: 325px;
+            background-repeat: no-repeat;
+            background-position: 20% 50%;
+            background-size: cover;
+            margin-bottom: 50px;
+            @include bp($bp-col8) {
+                background-position: right;
+            }
+            @include bp($bp-col12) {
+                height: 525px;
+                margin-bottom: 80px;
+            }
+
+            .content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 100%;
+                color: $color-slate-dark;
+                text-align: center;
+                padding: 0 10px;
+
+                @include bp($bp-col8) {
+                    left: auto;
+                    right: 42px;
+                    transform: translate(0,-50%);
+                    width: auto;
+                    text-align: right;
+                }
+
+                .title {
+                    position: relative;
+                    font-size: 24px;
+                    text-transform: uppercase;
+                    padding-bottom: 5px;
+                    margin-bottom: 20px;
+
+                    @include bp($bp-col12) {
+                        font-size: 40px;
+                        padding-bottom: 10px;
+                    }
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 60px;
+                        height: 2px;
+                        background-color: $color-gray-dark;
+                        @include bp($bp-col8) {
+                            left: auto;
+                            right: 0;
+                            transform: none;
+                        }
+                    }
+                }
+
+                .text {
+                    width: 100%;
+                    max-width: 300px;
+                    font: 14px/2 $font-sans-serif;
+                    margin: 0 auto;
+
+                    @include bp($bp-col12) {
+                        max-width: 440px;
+                        font-size: 21px;
+                    }
+                }
+            }
+        }
+
+        .body-section-title {
+            margin-bottom: 40px;
+            @include bp($bp-col8) {
+                margin-bottom: 60px;
+            }
+        }
+
+        // Featured Designers slider
+        .slider-container {
+            position: relative;
+            width: 100%;
+            padding: 0 40px;
+            margin-bottom: 50px;
+
+            @include bp($bp-col12) {
+                padding: 0 80px;
+                margin-bottom: 80px;
+            }
+
+            .bx-wrapper {
+                height: auto !important;
+                .bx-viewport {
+                    height: 100% !important;
+                }
+            }
+
+			.slide {
+				padding: 0 20px;
+			}
+
+            img {
+                width: 100%;
+                transition: opacity 0.2s, transform 0.2s;
+                &:hover {
+                    opacity: 0.6;
+                    transform: scale(0.98);
+                }
+            }
+
+            .ctrl-prev, .ctrl-next {
+                cursor: pointer;
+                position: absolute;
+                bottom: 0;
+                left: -15px;
+                padding: 10px;
+
+                &:hover svg {
+                    fill: darken(#c2c7c7, 15%);
+                }
+                svg {
+                    width: 15px;
+                    height: auto;
+                    fill: #c2c7c7;
+                    transition: fill 0.2s;
+                }
+            }
+            .ctrl-next {
+                left: auto;
+                right: -15px;
+            }
+        }
+
+        // Row of images in boxes
+        .image-collection {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+
+            img {
+                flex: 1;
+                width: 50%;
+                padding: 0;
+                margin: 0;
+                @include bp($bp-col8) {
+                    width: 33.33333%;
+                }
+                @include bp($bp-col12) {
+                    width: 16.66666%;
+                }
+            }
+        }
+    }
+
+    // Engagement Ring Section
+    .engagement {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        max-width: $bp-col16;
+        padding-top: 0;
+        margin: 0 auto;
+
+        @include bp($bp-col12) {
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .content {
+            width: 100%;
+            max-width: $bp-col8;
+            text-align: center;
+            margin-bottom: 50px;
+
+            @include bp($bp-col12) {
+                text-align: left;
+            }
+
+            .body-section-title {
+                display: inline-block;
+                @include bp($bp-col8) {
+                    &:after {
+                        width: 115%;
+                    }
+                }
+                @include bp($bp-col12) {
+                    text-align: left;
+                    margin-bottom: 40px;
+                }
+            }
+
+            .text {
+                @include bp($bp-col12) {
+                    margin-bottom: 40px;
+                }
+                p {
+                    color: $color-gray-dark;
+                    font-size: 14px;
+                    line-height: 1.875;
+                }
+            }
+
+        }
+
+        .image {
+            width: 100%;
+            max-width: 450px;
+            @include bp($bp-col12) {
+                width: 40%;
+                padding-left: 25px;
+            }
+        }
+
+    }
+
+}
+
+.footer-flagship {
+    padding: 0;
+
+    .footer-top {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin-bottom: 6px;
+
+        @include bp($bp-col12) {
+            flex-direction: row;
+            align-items: stretch;
+        }
+
+        .form {
+            width: 100%;
+            max-width: none;
+            padding: 20px;
+            margin: 0;
+
+            @include bp($bp-col8) {
+                padding: 30px;
+            }
+            @include bp($bp-col16) {
+                padding: 50px 40px;
+            }
+
+            &.signup-form {
+                background-color: $color-slate-dark;
+            }
+
+            &.consult-form {
+                background-color: $color-red;
+
+                .subtitle {
+                    color: #d1d5d5;
+                }
+            }
+
+            .title {
+                color: white;
+                font-weight: normal;
+                line-height: 1.25;
+                letter-spacing: 1px;
+                margin-bottom: 10px;
+
+                @include bp($bp-col8) {
+                    font-size: 24px;
+                }
+                @include bp($bp-col16) {
+                    font-size: 28px;
+                    margin-bottom: 5px;
+                }
+            }
+            .subtitle {
+                margin-bottom: 15px;
+
+                @include bp($bp-col8) {
+                    font-size: 15px;
+                }
+                @include bp($bp-col16) {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    // Navigation menu
+    .nav-menu {
+        width: 100%;
+        text-align: center;
+        background-color: $color-smoke;
+        padding: 10px;
+
+        @include bp($bp-col16) {
+            padding: 0;
+        }
+
+        .menu-item {
+            display: inline-block;
+            a {
+                display: block;
+                color: $color-gray-dark;
+                font: normal 14px/1 $font-sans-serif;
+                text-decoration: none;
+                text-transform: uppercase;
+                padding: 6px 15px;
+                transition: background-color 0.25s;
+
+                @include bp($bp-col16) {
+                    padding: 25px 30px;
+                }
+
+                &:hover {
+                    background-color: rgba(black, 0.03);
+                }
+            }
+        }
+    }
+
+    // Copyright section
+    .footer-bottom {
+        font-weight: normal;
+        margin: 15px auto;
+
+        .copyright {
+            margin-top: 0;
+        }
+    }
+
+}

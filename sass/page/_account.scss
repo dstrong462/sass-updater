@@ -1,0 +1,494 @@
+
+// ===== USER ACCOUNT FORM (e.g. LOGIN, FORGOT/RESET PASSWORD, ETC.)
+// ================================================================================
+
+.user-account-form {
+	max-width: 400px;
+	margin: 40px auto 20px auto;
+	text-align: center;
+	.tagline {
+		margin: 10px 0 25px 0;
+	}
+	.form-input li {
+		text-align: left;
+	}
+	.btn-submit {
+		width: 100%;
+		margin-top: 15px;
+	}
+	.helper-link {
+		display: inline-block;
+		margin-top: 10px;
+		color: $color-slate;
+		font: 400 14px/1.25 $font-sans-serif;
+	}
+}
+
+
+
+// ===== PAGE:  USER ACCOUNT - LOGIN
+// ================================================================================
+
+.page-account-login {
+	padding-top: 40px;
+	text-align: center;
+	.not-registered {
+		margin: 30px 0 10px ;
+		padding-top: 20px;
+		border-top: solid $color-smoke 1px;
+	}
+}
+@include bp($bp-col8) {
+	.page-account-login {
+		.not-registered {
+			margin-left: -20px;
+			margin-right: -20px;
+		}
+	}
+}
+
+
+
+// ===== PAGE:  USER ACCOUNT - LOGOUT
+// ================================================================================
+
+.page-account-logout {
+	padding-top: 40px;
+	text-align: center;
+}
+
+
+
+// ===== PAGE:  USER ACCOUNT - FORGOT PASSWORD
+// ================================================================================
+
+.page-account-forgot-password {
+	padding-top: 40px;
+	text-align: center;
+	p {
+		margin-top: 0;
+	}
+}
+
+
+
+// ===== PAGE:  USER ACCOUNT - RESET PASSWORD
+// ================================================================================
+
+.page-account-reset-password {
+	padding-top: 40px;
+	text-align: center;
+}
+
+
+
+// ===== PAGE:  USER ACCOUNT - REGISTRATION
+// ================================================================================
+
+.page-account-register {
+	padding-top: 40px;
+	text-align: center;
+}
+
+
+
+// ===== PAGE:  USER ACCOUNT - MY ACCOUNT
+// ================================================================================
+
+.my-account {
+	padding-top: 40px;
+	.account-section-bordered {
+		margin-top: 30px;
+		padding-top: 30px;
+		border-top: solid $color-smoke 1px;
+	}
+	.account-subtitle {
+		margin-top: 0;
+	}
+	.table-wrapper {
+		overflow: auto;
+	}
+	.action {
+		text-align: right;
+		white-space: nowrap;
+	}
+	.link-cta {
+		display: inline-block;
+		padding: 6px 10px 4px 10px;
+		background: $color-smoke;
+		border: solid $color-gray-lite 1px;
+		border-radius: 2px;
+		color: $color-slate;
+		font: 400 12px/1 $font-sans-serif;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: background 0.2s ease;
+		&:hover {
+			border-color: darken($color-gray-lite, 10%);
+		}
+		&.current {
+			position: relative;
+			background: $color-red;
+			border: 0;
+			color: #FFFFFF;
+			cursor: default;
+			&:after {
+				border-color: $color-red transparent transparent transparent;
+				border-style: solid;
+				border-width: 6px 6px 0 6px;
+				bottom: -6px;
+				content: ' ';
+				height: 0;
+				left: 50%;
+				margin-left: -6px;
+				position: absolute;
+				width: 0;
+			}
+		}
+	}
+	.addy {
+		float: left;
+		width: 50%;
+		min-width: 250px;
+		margin-bottom: 20px;
+		padding-right: 20px;
+		address {
+			font: normal 16px/1.15 $font-sans-serif;
+		}
+		.edit-link {
+			display: inline-block;
+			margin-top: 5px;
+			font-size: 14px;
+		}
+	}
+}
+@include bp(max-width $bp-col4-max) {
+	.my-account {
+		.orders-table {
+			.date {
+				padding-top: 10px;
+			}
+		}
+	}
+}
+
+
+
+// ===== PAGE:  USER ACCOUNT - MY ACCOUNT - SIDE NAVIGATION
+// ================================================================================
+
+.customer-account-nav {
+	.block-title {
+		margin-bottom: 10px;
+		padding: 0 10px 10px 10px;
+		border-bottom: solid $color-smoke 1px;
+		font-size: 18px;
+		text-transform: uppercase;
+	}
+	.current-menu-item a {
+		color: $color-red;
+	}
+	a {
+		display: block;
+		padding: 0 10px;
+		color: inherit;
+	    cursor: pointer;
+	    font: bold 12px/30px $font-sans-serif;
+	    text-decoration: none;
+	    text-transform: uppercase;
+		&:hover {
+			color: $color-slate;
+		}
+	}
+}
+@include bp(max-width $bp-col4-max) {
+	.customer-account-nav {
+		padding: 20px;
+		background: $color-smoke;
+	}
+}
+
+
+
+// ===== PAGE:  USER ACCOUNT - MY ACCOUNT - DASHBOARD
+// ================================================================================
+
+.my-account {
+	.buttons-set {
+		margin-top: 20px;
+	}
+	.dash-orders {
+		.orders-table {
+			margin-bottom: 0;
+		}
+	}
+	.dash-address {
+		.buttons-set {
+			clear: left;
+		}
+	}
+}
+
+
+
+// ===== PAGE:  USER ACCOUNT - MY ACCOUNT - ACCOUNT INFO
+// ================================================================================
+
+.my-account-info {
+	text-align: center;
+	.user-account-form {
+		text-align: left;
+	}
+	.control {
+		label {
+			line-height: 20px;
+		}
+	}
+}
+@include bp($bp-col8) {
+	.my-account-info {
+		text-align: left;
+		.user-account-form {
+			max-width: 480px;
+			margin: 0;
+			text-align: left;
+		}
+	}
+}
+
+
+
+// ===== PAGE:  USER ACCOUNT - MY ACCOUNT - ADDRESS BOOK
+// ================================================================================
+
+.my-account-address-book {
+	.addy-odd {
+		clear: left;
+	}
+	.no-address {
+		font: italic 16px/1.35 $font-sans-serif;
+	}
+}
+
+
+
+// ===== PAGE:  USER ACCOUNT - MY ACCOUNT - ADDRESS EDIT
+// ================================================================================
+
+.my-account-address-edit {
+	text-align: center;
+	.user-account-form {
+		text-align: left;
+	}
+	.address-primary-row {
+		margin-bottom: 4px;
+	}
+	.control {
+		@extend %clearfix;
+		margin-bottom: 4px;
+		label {
+			float: left;
+			display: inline-block;
+			line-height: 19px;
+		}
+	}
+}
+@include bp($bp-col8) {
+	.my-account-address-edit {
+		text-align: left;
+		.user-account-form {
+			margin: 0;
+			max-width: 480px;
+			text-align: left;
+		}
+	}
+}
+
+
+
+// ===== PAGE:  USER ACCOUNT - MY ACCOUNT - ORDERS - SINGLE
+// ================================================================================
+
+.order-single-init {
+	.buttons {
+		margin-bottom: 20px;
+		.btn {
+			margin-bottom: 3px;
+		}
+	}
+	.order-meta {
+		margin-top: 0;
+		font: normal 12px/1.5 $font-serif;
+	}
+	.order-tabs {
+		margin-top: 5px;
+		li {
+			display: inline-block;
+			margin: 0 5px 5px 0;
+		}
+	}
+	.order-info {
+		overflow: hidden;
+		.additional-info {
+			margin-top: 15px;
+			font: normal 16px/1.15 $font-sans-serif;
+			.label {
+				font-weight: 700;
+			}
+		}
+	}
+}
+.order-details {
+	.print-link,
+	.print-all-link {
+		display: inline-block;
+		margin: 0 5px 5px 0;
+		font: normal 12px/1.5 $font-sans-serif;
+	}
+}
+.order-single {
+	.order-items {
+		.table-wrapper {
+			overflow: auto;
+		}
+		.tracking-link {
+			display: inline-block;
+			margin-bottom: 10px;
+		}
+		.subtotal {
+			text-align: right;
+		}
+		col {
+			width: 1px;
+		}
+		col.product {
+			width: 100%;
+		}
+		td {
+			white-space: nowrap;
+			&.product {
+				white-space: normal;
+			}
+		}
+		tfoot {
+			.totals-wrapper {
+				border-top: solid $color-smoke 2px;
+				padding-top: 12px;
+				padding-bottom: 12px;
+				td {
+					border: 0;
+					padding: 4px 0 4px 12px;
+					text-align: right;
+					vertical-align: top;
+					white-space: nowrap;
+				}
+			}
+		}
+		.comment {
+			margin-bottom: 24px;
+			font: italic 14px/1.25 $font-sans-serif;
+			.date {
+				margin-bottom: 4px;
+				font: bold 12px/1 $font-sans-serif;
+			}
+		}
+	}
+}
+@include bp(max-width 480px) {
+	.my-account-order-single-init {
+		.link-cta.current:after {
+			display: none;
+		}
+	}
+}
+@include bp(max-width $bp-col4-max) {
+	.order-single {
+		.order-items {
+			.cart-table {
+				> tbody {
+					td {
+						&[data-cart-label] {
+							position: relative;
+							padding-left: 85px;
+							&:before {
+								position: absolute;
+								left: 0;
+								width: 85px;
+							}
+						}
+						&:first-child {
+							padding-top: 10px;
+						}
+						&:last-child {
+							padding-bottom: 10px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+// ===== PAGE:  USER ACCOUNT - MY ACCOUNT - WISHLIST
+// ================================================================================
+
+.my-account-wishlist {
+	.cart-table {
+		.img {
+			width: 75px;
+		}
+		.product {
+			a {
+				display: block;
+				color: inherit;
+				text-decoration: none;
+				&:hover {
+					color: $color-red;
+				}
+			}
+		}
+		.btn-remove {
+			display: inline-block;
+			color: darken($color-gray, 5%);
+			font-size: 9px;
+			letter-spacing: 1px;
+			line-height: 17px;
+			text-decoration: none;
+			text-transform: uppercase;
+			transition: color 0.2s ease;
+			&:before {
+				display: block;
+				height: 14px;
+				width: 14px;
+				background: $color-gray;
+				border-radius: 2px;
+				color: #FFFFFF;
+				content: '\00D7';
+				font: bold 12px/14px Arial, Helvetica, sans-serif;
+				letter-spacing: 0;
+				text-align: center;
+				transition: background 0.2s ease;
+			}
+			&:hover {
+				color: $color-red-lite;
+				&:before {
+					background-color: $color-red-lite;
+				}
+			}
+		}
+	}
+}
+@include bp(max-width $bp-col4-max) {
+	.my-account-wishlist {
+		.cart-table {
+			td:not(:first-child) {
+				padding-top: 0;
+			}
+			td:not(:last-child) {
+				padding-bottom: 0;
+			}
+		}
+	}
+}

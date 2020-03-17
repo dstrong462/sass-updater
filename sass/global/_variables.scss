@@ -1,0 +1,52 @@
+
+// ===== FONTS / TYPOGRAPHY
+// ================================================================================
+
+$font-serif: Palatino, 'Palatino Linotype', 'Palatino LT STD', Times, 'Times New Roman', serif;
+$font-sans-serif: 'Josefin Sans', sans-serif;
+$font-cursive: 'Parisienne', cursive;
+
+
+
+// ===== COLOR SWATCHES
+// ================================================================================
+
+$color-gray: #bfc8c8;
+$color-gray-dark: #869090;
+$color-gray-lite: #d8e1e1;
+$color-smoke: #ececec;
+$color-slate: #4a5056;
+$color-slate-dark: #2c2d31;
+$color-red: #bd1a31;
+$color-red-lite: #de4f53;
+$color-green: #148D49;
+$color-gold: #FFB31A;
+
+
+
+// ===== BREAKPOINTS
+// ================================================================================
+
+// Primary Breakpoints
+$bp-col4: 0;
+$bp-col8: 640px;
+$bp-col10: 800px;
+$bp-col12: 960px;
+$bp-col16: 1280px;
+$bp-col18: 1440px;
+
+// Secondary Breakpoints (1px < primary)
+$bp-col4-max: $bp-col8 - 1;
+$bp-col8-max: $bp-col12 - 1;
+$bp-col12-max: $bp-col16 - 1;
+
+
+
+// ===== SETTINGS & CONFIGURATION
+// ================================================================================
+
+// Default Font Settings
+$default-font-size: 16px;
+$default-font-size-html: 16px;
+$default-font-color: $color-gray-dark;
+$default-font: $font-serif;

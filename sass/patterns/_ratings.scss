@@ -1,0 +1,57 @@
+
+// ===== RATINGS AND REVIEWS
+// ================================================================================
+
+.reviews-wrapper  {
+	text-align: center;
+	.review-star-rating {
+		position: relative;
+		display: block;
+		height: 18px;
+		width: 100px;
+		margin: 0 auto 25px auto;
+		overflow: hidden;
+		text-indent: -999px;
+		&:before,
+		&:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			content: ' ';
+		}
+		&:before {
+			background: url('../img/icon-star-outline.svg') 0 0 repeat;
+			background-size: 20px 18px;
+			z-index: 2;
+		}
+		&:after {
+			background: url('../img/icon-star.svg') 0 0 repeat;
+			background-size: 20px 18px;
+			z-index: 1;
+		}
+		&[data-rating="0"]:after   { width: 0; }
+		&[data-rating="0.5"]:after { width: 10px; }
+		&[data-rating="1"]:after   { width: 20px; }
+		&[data-rating="1.5"]:after { width: 30px; }
+		&[data-rating="2"]:after   { width: 40px; }
+		&[data-rating="2.5"]:after { width: 50px; }
+		&[data-rating="3"]:after   { width: 60px; }
+		&[data-rating="3.5"]:after { width: 70px; }
+		&[data-rating="4"]:after   { width: 80px; }
+		&[data-rating="4.5"]:after { width: 90px; }
+		&[data-rating="5"]:after   { width: 100px; }
+	}
+	.review-body {
+		font: normal 16px/1.25 $font-serif;
+		@include bp($bp-col8) {
+			font-size: 20px;
+		}
+	}
+	.review-meta {
+		margin-top: 12px;
+		font: 700 14px/1.25 $font-sans-serif;
+		text-transform: uppercase;
+	}
+}

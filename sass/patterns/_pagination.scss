@@ -1,0 +1,98 @@
+
+// ===== PAGINATION
+// ================================================================================
+
+.pagination-container {
+	text-align: center;
+}
+
+.pagination {
+	display: inline-block;
+	text-align: center;
+	> li {
+		font: normal 11px/22px $font-sans-serif;
+		display: inline-block;
+		margin-right: 18px;
+		overflow: hidden;
+		> a,
+		> span {
+			background: lighten($color-slate-dark, 15%);
+			border-radius: 3px;
+			color: #FFFFFF;
+			font: normal 12px/24px $font-sans-serif;
+			display: inline-block;
+			height: 24px;
+			min-width: 24px;
+			text-align: center;
+			text-decoration: none;
+			&:hover {
+				background: $color-slate-dark;
+			}
+		}
+	}
+	.active > a,
+	.active > span {
+		background: $color-red !important;
+		cursor: default;
+	}
+	.disabled > a,
+	.disabled > span {
+		background: lighten($color-slate-dark, 30%) !important;
+		cursor: default !important;
+	}
+}
+
+
+
+// ===== PAGINATION FORM
+// ================================================================================
+
+.pagination-form {
+	position: relative;
+	display: inline-block;
+	padding: 0 25px;
+	overflow: hidden;
+	.link {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		display: block;
+		width: 22px;
+		text-align: center;
+		svg {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			height: 19px;
+			width: 12px;
+			fill: $color-slate-dark;
+			transform: translate(-50%, -50%);
+		}
+		&.disabled {
+			cursor: default;
+			opacity: 0.4;
+		}
+	}
+	.link-pg-prev {
+		left: 0;
+	}
+	.link-pg-next {
+		right: 0;
+	}
+	.input-wrapper {
+		display: inline-block;
+		height: 33px;
+		margin: 0 5px;
+		color: $color-slate;
+		font: normal 14px/32px $font-serif;
+		vertical-align: top;
+	}
+	.input-text {
+		display: inline-block;
+		height: 32px;
+		width: 35px;
+		padding: 0;
+		font: normal 14px/31px $font-serif;
+		text-align: center;
+	}
+}

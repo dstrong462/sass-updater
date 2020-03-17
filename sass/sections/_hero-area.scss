@@ -1,0 +1,356 @@
+
+// ===== HERO AREA
+// ================================================================================
+
+.hero-wrapper {
+	position: relative;
+	overflow: hidden;
+	img {
+		display: block;
+		width: 100%;
+	}
+	&.hero-home {
+		.hero-asset-img {
+			&:before,
+			&:after {
+				display: none;
+			}
+		}
+	}
+	&.hero-internal {
+		margin-bottom: 50px;
+	}
+}
+
+
+
+// ===== HERO AREA - IMAGE ASSET
+// ================================================================================
+
+// When there is no hero image
+.hero-blank {
+	color: $color-slate-dark;
+	text-align: center;
+	background-color: $color-smoke;
+	padding: 50px 10px;
+
+	@include bp($bp-col8) {
+		padding: 75px 10px;
+	}
+	@include bp($bp-col12) {
+		padding: 100px 10px;
+	}
+
+	.hero-asset-copy {
+		position: static;
+		transform: none;
+		color: $color-slate-dark;
+		margin: 0 auto;
+
+		.title {
+			position: static;
+			max-width: 510px;
+			padding: 0;
+			margin: 0 auto 10px auto;
+
+			@include bp($bp-col12) {
+				max-width: 700px;
+				margin-bottom: 40px;
+			}
+		}
+	}
+}
+
+.hero-asset {
+	position: relative;
+
+	// Dark overlay
+	&:after {
+		pointer-events: none;
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba($color-slate, 0.1);
+		z-index: 1;
+	}
+}
+.hero-asset-img {
+	position: relative;
+	z-index: 1;
+	&:before,
+	&:after {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		content: ' ';
+	}
+	&:before {
+		background: rgba($color-slate, 0.1);
+		z-index: 2;
+	}
+	&:after {
+		background: radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+		opacity: 0.2;
+		z-index: 3;
+	}
+	body:not(.home) & {
+		max-height: 450px;
+ 	}
+}
+
+// Hidden text behind hero image for SEO purposes
+.seo-text {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	z-index: 0;
+}
+
+.hero-asset-copy {
+	width: 100%;
+	max-width: 760px;
+	color: #FFFFFF;
+	text-align: center;
+	z-index: 1;
+
+	.title {
+		position: relative;
+		margin: 0 0 24px 0;
+		color: inherit;
+		font: normal 9vw/1 $font-cursive;
+		font-family: $font-cursive; // Some IE versions don't like the shorthand "font" rule with a viewport unit in it
+		text-transform: none;
+		z-index: 1;
+		&:after {
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			display: block;
+			height: 2px;
+			width: 160px;
+			background: rgba(255,255,255,0.5);
+			content: ' ';
+			transform: translateX(-50%);
+			z-index: -1;
+		}
+	}
+	.body {
+		font: 700 16px/1.5 $font-sans-serif;
+	}
+	@include bp(max-width $bp-col4-max) {
+		.title {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			padding-top: 28%; // used to "vertically center" text
+			font-size: 9vw;
+		}
+		.body {
+			padding: 20px;
+			background: $color-smoke;
+			color: $color-slate;
+		}
+	}
+	@include bp($bp-col8) {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		padding: 0 30px;
+		transform: translate(-50%, -50%);
+		.title {
+			font-size: 42px;
+		}
+	}
+	@include bp($bp-col12) {
+		.title {
+			font-size: 60px;
+			&:after {
+				width: 200px;
+			}
+		}
+		.body {
+			font-size: 20px;
+		}
+	}
+}
+
+
+
+// ===== HERO AREA - SLIDER
+// ================================================================================
+
+.hero-wrapper {
+	position: relative;
+}
+.hero-ctrl {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 24px;
+	cursor: pointer;
+	overflow: hidden;
+	text-indent: -500px;
+	@include bp($bp-col8) { width: 30px; }
+	@include bp($bp-col12) { width: 40px; }
+	a {
+		position: absolute;
+		top: 0;
+		display: block;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+		text-indent: -500px;
+	}
+	svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 14px;
+		height: 40px;
+		fill: #FFFFFF;
+		transform: translate(-50%, -50%);
+		transition: opacity 0.3s ease;
+		filter: drop-shadow(-1px 1px 4px rgba(black, 0.35));
+	}
+	&:hover {
+		svg {
+			opacity: 1;
+		}
+	}
+}
+.hero-ctrl-prev {
+	left: 0;
+}
+.hero-ctrl-next {
+	right: 0;
+}
+
+
+// ===== BODY BELOW LOCATION PAGE
+// ================================================================================
+
+.hero-asset-copy-below .body {
+	display: block;
+	width: 70%;
+	margin: 0 auto 30px auto;
+	font-size: 18px;
+	text-align: center;
+	@include bp(max-width $bp-col4-max) {
+		width: 90%;
+		font-size: 16px;
+	}
+}
+
+
+
+// ===== HERO AREA - MISC. OVERRIDES
+// ================================================================================
+
+// This is for the location page - body content is going below header
+.page-id-232 .hero-asset-copy .body {
+	 display: none;
+}
+
+// This is for the individual location pages - SEO short term fix, may revert back shortly (March 21 2017)
+.page-id-234 .hero-asset-img {
+	 max-height:220px !important;
+}
+.page-id-234 .hero-asset-copy {
+	color:#4a5056!important;
+}
+	.page-id-234 .hero-asset-img:before {
+		background: rgba(236,236,235,1) !important;
+		z-index: 2;
+	}
+	.page-id-234 .hero-asset-img:after {
+		background:none !important;
+	}
+.page-id-239 .hero-asset-img {
+	 max-height:220px !important;
+}
+.page-id-239 .hero-asset-copy {
+	color:#4a5056!important;
+}
+	.page-id-239 .hero-asset-img:before {
+		background: rgba(236,236,235,1) !important;
+		z-index: 2;
+	}
+	.page-id-239 .hero-asset-img:after {
+		background:none !important;
+	}
+
+.page-id-246 .hero-asset-img {
+	 max-height:220px !important;
+}
+.page-id-246 .hero-asset-copy {
+	color:#4a5056!important;
+}
+	.page-id-246 .hero-asset-img:before {
+		background: rgba(236,236,235,1) !important;
+		z-index: 2;
+	}
+	.page-id-246 .hero-asset-img:after {
+		background:none !important;
+	}
+.page-id-249 .hero-asset-img {
+	 max-height:220px !important;
+}
+.page-id-249 .hero-asset-copy {
+	color:#4a5056!important;
+}
+	.page-id-249 .hero-asset-img:before {
+		background: rgba(236,236,235,1) !important;
+		z-index: 2;
+	}
+	.page-id-249 .hero-asset-img:after {
+		background: none !important;
+	}
+
+
+// Magento Category Pages / Search Pages
+body.catalog-category-view,
+body.catalogsearch-result-index {
+	@include bp(max-width $bp-col8-max) {
+		.hero-wrapper {
+			margin-bottom: 30px;
+			.slider {
+				display: none;
+			}
+		}
+		.hero-asset-copy .body {
+			display: none;
+		}
+	}
+	@include bp($bp-col12) {
+		.hero-asset-img {
+			height: 40vh;
+			img,
+			picture {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				object-fit: cover;
+			}
+			html.no-objectfit & {
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				img,
+				picture {
+					visibility: hidden;
+				}
+			}
+		}
+		.hero-asset-copy .body {
+			line-height: 1.25;
+		}
+	}
+}

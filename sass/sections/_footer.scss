@@ -1,0 +1,343 @@
+
+// ===== FOOTER
+// ================================================================================
+
+.footer-main {
+	margin-top: 50px;
+}
+.footer-collapsed {
+	height: 0;
+	overflow: hidden;
+}
+.footer-frame-buffer-bottom {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 20px;
+	background: #FFFFFF;
+	z-index: 50;
+	@include bp($bp-col12) {
+		height: 40px;
+	}
+}
+
+
+
+// ===== FOOTER - TOP
+// ================================================================================
+
+.footer-top {
+    padding: 30px 0 34px 0;
+    background: $color-smoke;
+    overflow: hidden;
+    .form {
+        margin: 0 auto;
+        padding: 0 20px;
+        overflow: hidden;
+        .btn {
+            top: 0px;
+            height: 50px;
+            font-size: 15px;
+            line-height: 1;
+        }
+    }
+    .title {
+        font: 700 18px/1.4 $font-sans-serif;
+        text-transform: uppercase;
+    }
+    .subtitle {
+        font: normal 14px/1.5 $font-serif;
+				margin-bottom: 10px;
+    }
+    .signup-form {
+        margin-bottom: 40px;
+        .title {
+            color: $color-slate-dark;
+        }
+    }
+    .consult-form {
+        .title {
+            color: $color-red;
+        }
+    }
+    @include bp(max-width $bp-col4-max) {
+        .form {
+            max-width: 400px;
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+    @include bp($bp-col8) {
+        .form {
+            max-width: 600px;
+        }
+        .form-row {
+            float: left;
+            &.form-row-input {
+                margin-right: 10px;
+            }
+        }
+    }
+    @include bp($bp-col12) {
+        .form {
+            float: left;
+            width: 50%;
+        }
+    }
+}
+
+
+
+// ===== FOOTER - NAVIGATION
+// ================================================================================
+
+.footer-nav {
+    margin-top: 4px;
+    padding: 10px 20px;
+    background: $color-smoke;
+    font-size: 0;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    li {
+        margin: 2px 0;
+    }
+    a {
+        display: block;
+        color: inherit;
+        font: 700 14px/1.65 $font-sans-serif;
+        text-decoration: none;
+        transition: color 0.25s ease;
+        &:hover {
+            color: darken($color-gray-dark, 20%);
+        }
+    }
+    @include bp($bp-col12) {
+        li {
+            display: inline-block;
+        }
+        a {
+            padding: 0 10px;
+        }
+    }
+    @include bp($bp-col16) {
+        li {
+            display: inline-block;
+        }
+        a {
+            padding: 0 15px;
+        }
+    }
+}
+
+
+
+// ===== FOOTER - BOTTOM
+// ================================================================================
+
+.footer-bottom {
+    position: relative;
+    min-height: 20px;
+    margin: 12px 0 20px 0;
+    color: $color-slate;
+    font: 700 10px/1 $font-sans-serif;
+    overflow: hidden;
+    text-align: center;
+    text-transform: uppercase;
+    a {
+        color: inherit;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .social {
+        font-size: 0;
+        text-align: center;
+        li {
+            display: inline-block;
+            margin: 0 6px;
+        }
+        a {
+            position: relative;
+            display: block;
+            height: 20px;
+            width: 20px;
+            overflow: hidden;
+            text-indent: -999px;
+            &.youtube {
+                width: 50px;
+            }
+            &:hover svg {
+                fill: $color-red;
+            }
+        }
+        i {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            text-indent: 0;
+        }
+        svg {
+            fill: $color-slate-dark;
+            transition: fill 0.25s ease;
+        }
+    }
+    .copyright {
+        margin-top: 12px;
+    }
+    .credits {
+        margin-top: 8px;
+        a:hover {
+            text-decoration: none;
+        }
+    }
+    @include bp($bp-col12) {
+        margin: 30px 0 40px 0;
+        line-height: 1.25;
+        .social {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .copyright {
+            float: left;
+            max-width: 300px;
+            margin-top: 0;
+            text-align: left;
+        }
+        .credits {
+            float: right;
+            margin-top: 0;
+            text-align: right;
+        }
+    }
+    @include bp($bp-col16) {
+        .copyright {
+            max-width: none;
+        }
+    }
+}
+
+
+// ===== FULL CONTACT FORM FOOTER STYLES
+// ================================================================================
+.footer-full-form {
+
+    // Featured content with form and callout text
+    .footer-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background: #f4f4f4 url('../img/bg-footer-workshop.jpg') center/cover no-repeat;
+        padding: 65px 20px;
+        
+        @include bp($bp-col8) {
+            padding: 80px 80px;
+        }
+
+        @include bp($bp-col12) {
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 100px 40px 75px 40px;
+        }
+
+        .form-callout {
+            position: relative;
+            width: 100%;
+            max-width: 375px;
+            color: white;
+            margin-bottom: 30px;
+            z-index: 1;
+
+            @include bp($bp-col8) {
+                max-width: 600px;
+            }
+
+            @include bp($bp-col12) {
+                max-width: 320px;
+                margin: 0 50px 0 0;
+            }
+
+            .title {
+                color: white;
+            }
+
+            p {
+                font-size: 14px;
+                line-height: 1.875;
+
+                @include bp($bp-col8) {
+                    font-size: 15px;
+                }
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+                
+        }
+
+        form {
+            position: relative;
+            width: 100%;
+            max-width: 375px;
+            z-index: 1;
+
+            @include bp($bp-col8) {
+                max-width: 600px;
+                margin: 0;
+            }
+
+            @include bp($bp-col12) {
+                max-width: 800px;
+            }
+
+            > .form-row:last-of-type {
+                margin-bottom: 0;
+            }
+
+            .btn-submit {
+                font-weight: 400;
+            }
+        }
+    }
+
+    // Gray navigation bar with links
+    .footer-nav {
+        padding: 16px 20px;
+
+        .menu {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            @include bp($bp-col12) {
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+
+        .menu-item a {
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+    }
+
+    // Copyright text and TriMark link
+    .footer-bottom {
+        font-weight: 400;
+        margin: 15px 0 75px 0;
+        .copyright {
+            max-width: none;
+        }
+    }
+}

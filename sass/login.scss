@@ -1,0 +1,83 @@
+//Set your two colors for the button
+$main-red: #bd1a31;
+$dark-red: darken(#bd1a31, 5%);
+
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+
+body.login {
+	background: #fff url(../img/bg-admin-login.png) 0 0 repeat;
+}
+
+#login {
+
+	width: 360px;
+
+	.message {
+		border-left-color: $main-red;
+	}
+
+	h1 a {
+		background: transparent url(../img/logo-baileys.svg) 0 0 no-repeat;
+		background-size: contain;
+		width: 100%;
+		max-width: 320px;
+		height: 95px;
+		text-indent: -9999px;
+		overflow: hidden;
+		display: block;
+		margin: 40px auto 12px;
+		outline: none;
+	}
+
+	form {
+		padding: 26px 24px 46px;
+		font-weight: normal;
+		background: rgba(white, 0.9);
+		border: 1px solid #E5E5E5;
+		border-radius: 3px;
+
+		.input {
+			font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",sans-serif;
+			font-weight: 200;
+			font-size: 24px;
+			width: 97%;
+			padding: 3px;
+			margin-top: 2px;
+			margin-right: 6px;
+			margin-bottom: 16px;
+			border: 1px solid #E5E5E5;
+			background: #FBFBFB;
+			outline: none;
+			box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.2);
+		}
+	}
+}
+
+//Overwrite the default Blue WP Login button
+#wp-submit {
+	background-color: $main-red;
+	background-image: linear-gradient($main-red, $dark-red);
+	border: 1px solid $dark-red;
+	border-bottom: 1px solid darken($dark-red, 5%);
+	border-radius: 4px;
+	box-shadow: inset 0 1px 0 0 lighten($dark-red, 15%);
+	color: #fff;
+	font: bold 11px/1 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	padding: 7px 0 8px 0;
+	text-align: center;
+	text-shadow: 0 -1px 0 darken($main-red, 10%);
+	width: 40%;
+		&:hover {
+			background-color: darken($main-red, 2%);
+			background-image: linear-gradient(darken($main-red, 2%), darken($dark-red, 2%));
+			box-shadow: inset 0 1px 0 0 lighten($dark-red, 20%);
+			cursor: pointer;
+		}
+		&:active {
+			border: 1px solid #521a16;
+			border-bottom: 1px solid #521a16;
+			box-shadow: inset 0 0 8px 4px darken($main-red, 10%), 0 1px 0 0 #eee;
+		}
+}

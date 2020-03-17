@@ -1,0 +1,284 @@
+
+// ===== FORM ELEMENTS
+// ================================================================================
+
+form {
+	margin: 0;
+	padding: 0;
+}
+
+// Normalize Number Input Fields
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+// Text Input Fields
+.input-text,
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=number],
+input[type=tel],
+input[type=search],
+textarea {
+	display: block;
+	width: 100%;
+	padding: 10px 15px 8px 15px;
+	background-color: #FFFFFF;
+	border: solid $color-gray 1px;
+	border-radius: 2px;
+	color: $color-slate;
+	font: normal 16px/1.25 $font-serif;
+	outline: none;
+	-webkit-appearance: none; // Removes iOS inner-shadow
+	transition: all 0.3s;
+	&:focus,
+	&:active {
+		border-color: #4a5056;
+	}
+
+	// Error Notification
+	&.error {
+		color: $color-red;
+		border-color: $color-red-lite;
+		+ label {
+			color: $color-red !important;
+		}
+	}
+
+	// Error Notification (Magento)
+	&.validation-failed {
+		color: $color-red;
+		border-color: $color-red-lite;
+	}
+}
+
+// Select Fields (via Uniform JS)
+.selector {
+	position: relative;
+	text-align: left !important;
+	z-index: 10;
+	span {
+		position: relative;
+		display: block;
+		padding: 15px 32px 13px 15px;
+		background-color: #FFFFFF;
+		border: solid $color-gray 1px;
+		border-radius: 2px;
+		color: $color-slate;
+		cursor: pointer;
+		font: normal 16px/1.25 $font-serif;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		&:after {
+			position: absolute;
+			right: 11px;
+			top: 50%;
+			display: block;
+			height: 30px;
+			width: 10px;
+			margin-top: -14px;
+			background: url('../img/icon-angle-down.svg') center center no-repeat;
+			content: '';
+		}
+	}
+	select {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		cursor: pointer;
+		font: normal 16px/1.25 $font-serif;
+		opacity: 0;
+		-webkit-appearance: menulist-button;
+	}
+}
+
+// Checkbox and Radios (via Uniform JS)
+div.radio,
+div.checker {
+	float: left;
+	position: relative;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	margin: 0;
+	span,
+	input {
+		width: 18px;
+		height: 18px;
+	}
+	span {
+		display: inline-block;
+		position: relative;
+		text-align: center;
+		border: solid $color-gray 1px;
+		background-color: #FFFFFF;
+	}
+	input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		border: none;
+		background: none;
+		opacity: 0;
+		filter: alpha(opacity=0);
+		z-index: 999;
+	}
+}
+div.checker {
+	span {
+		&.checked {
+			&:after {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				content: '\2713';
+				color: $color-red-lite;
+				font: 700 22px/18px $font-sans-serif;
+			}
+		}
+	}
+}
+div.radio {
+	span {
+		border-radius: 50%;
+		&.checked {
+			&:after {
+				position: absolute;
+				left: 3px;
+				top: 3px;
+				width: 10px;
+				height: 10px;
+				content: ' ';
+				background-color: $color-red-lite;
+				border-radius: 50%;
+			}
+		}
+	}
+}
+.form-elem-checkradio {
+	@extend .clearfix;
+	margin: 5px 0;
+	line-height: 18px;
+	label {
+		float: left;
+		margin-left: 8px;
+		font-size: 14px;
+		line-height: 18px;
+	}
+}
+
+// Human Testing
+input[name=breathing] {
+	display: none;
+}
+
+// Labels
+label {}
+
+// Required Field Indicators
+.i-req {
+	color: $color-red-lite;
+	font: 400 16px/10px $font-sans-serif;
+	vertical-align: bottom;
+}
+
+// Validation Advice (Magento)
+.validation-advice {
+	padding: 3px 0 0 5px;
+	color: $color-red-lite;
+	font: 700 13px/1.25 $font-sans-serif;
+}
+
+
+
+// ===== FORMS WITH INLINE LABELS
+// ================================================================================
+
+.form-label-inline {
+	label:not(.label) {
+		position: absolute;
+		top: 1px;
+		bottom: 1px;
+		left: 1px;
+		right: 1px;
+		z-index: 10;
+		padding: 17px 0 0 15px;
+		color: $color-slate;
+		cursor: text;
+		line-height: 1;
+		transition: color 0.25s ease, font-size 0.25s ease, padding 0.25s ease, top 0.25s ease;
+	}
+	.input-text {
+		width: 100%;
+		padding-top: 21px;
+		padding-bottom: 7px;
+	}
+	.form-row {
+		position: relative;
+		margin: 0 0 22px;
+		&.label-up {
+			label {
+				top: 10px;
+				bottom: auto;
+				padding-top: 0;
+				color: $color-gray-dark;
+				font-size: 10px;
+			}
+		}
+	}
+	// Allows for rows with 2 inputs on larger screens
+	.form-row-split {
+		@include bp($bp-col8) {
+			display: flex;
+
+			.form-row {
+				width: 50%;
+				&:first-of-type {
+					margin-right: 22px;
+				}
+			}
+		}
+	}
+}
+
+
+
+// ===== FORMS WITH STACKED LABELS
+// ================================================================================
+
+.form-label-stacked {
+	li,
+	.field,
+	.form-row {
+		margin-bottom: 18px;
+	}
+	label:not(.label) {
+		display: block;
+		margin-bottom: 2px;
+		color: $color-gray-dark;
+		font: 700 12px/1 $font-sans-serif;
+		text-align: left;
+		text-transform: uppercase;
+	}
+	.label-inline {
+		display: inline-block;
+	}
+	.input-text,
+	input[type=text],
+	input[type=password],
+	input[type=email],
+	input[type=number],
+	input[type=tel],
+	textarea,
+	select {
+		width: 100%;
+	}
+}

@@ -1,0 +1,24 @@
+// ===== LISTS
+// ================================================================================
+
+// Reset all <ul>'s
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+// Cross-browser (uniform) <ul> style
+.ul {
+	margin: 20px 0;
+	li {
+		padding-left: 35px;
+		position: relative;
+		&:before {
+			content: "\2022";
+			display: inline-block;
+			left: 15px;
+			position: absolute;
+		}
+	}
+}

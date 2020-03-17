@@ -1,0 +1,102 @@
+
+// ===== BUTTONS
+// ================================================================================
+
+// Global Button Style
+.btn {
+	position: relative;
+	display: inline-block;
+	padding: 8px 20px 5px 20px;
+	background: $color-slate-dark;
+	border: 0;
+	border-radius: 2px;
+	color: #FFFFFF;
+	cursor: pointer;
+	font: 700 12px/1.25 $font-sans-serif;
+	outline: none;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: background 0.25s ease, color 0.25s ease;
+	&:hover:not([disabled]),
+	&:focus {
+		background: $color-slate;
+	}
+	&[disabled] {
+		cursor: default;
+		opacity: 0.5;
+	}
+}
+
+
+
+// ===== BUTTONS - COLOR VARIATIONS
+// ================================================================================
+
+// Black (slate / dark gray)
+.btn-black {
+	background: $color-slate-dark;
+	&:hover:not([disabled]),
+	&:focus {
+		background: $color-slate;
+	}
+}
+.btn-black-ghost {
+	background: #FFFFFF;
+	border: solid $color-slate-dark 2px;
+	color: $color-slate-dark;
+	&:hover:not([disabled]),
+	&:focus {
+		background: $color-slate-dark;
+		color: #FFFFFF;
+	}
+}
+
+// Red
+.btn-red {
+	background: $color-red;
+	&:hover:not([disabled]),
+	&:focus {
+		background: $color-red-lite;
+	}
+}
+.btn-red-ghost {
+	background: #FFFFFF;
+	border: solid $color-red 2px;
+	color: $color-red;
+	&:hover:not([disabled]),
+	&:focus {
+		background: $color-red;
+		color: #FFFFFF;
+	}
+}
+
+// Gray
+.btn-gray {
+	background: $color-gray;
+	color: $color-slate;
+	&:hover:not([disabled]),
+	&:focus {
+		background: $color-gray-lite;
+	}
+}
+
+// White
+.btn-white {
+	background: white;
+	color: $color-slate;
+	&:hover:not([disabled]),
+	&:focus {
+		background: $color-gray-lite;
+	}
+}
+
+
+
+// ===== BUTTONS - SIZE VARIATIONS
+// ================================================================================
+
+.btn-lg {
+	padding: 14px 25px 11px 25px;
+	font-size: 18px;
+}

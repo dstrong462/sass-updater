@@ -1,0 +1,50 @@
+
+// ===== MESSAGES
+// ================================================================================
+
+// Message Wrapper
+.messages {
+	margin: 30px 0 !important; // overwrite .ul > li
+	font: 400 16px/1.25 $font-sans-serif;
+	& > li {
+		padding: 13px 15px 12px 15px !important; // overwrite .ul > li
+		border-radius: 3px;
+		&:before {
+			display: none !important; // overwrite .ul > li
+		}
+		li {
+			padding-bottom: 12px;
+			&:last-child {
+				padding-bottom: 0;
+			}
+		}
+	}
+	.title {
+		font-weight: bold;
+		padding-bottom: 12px;
+	}
+	.ul {
+		margin: 0;
+		li {
+			padding-bottom: 0;
+		}
+	}
+}
+
+// Message Types
+.success-msg {
+	background: rgba($color-green, 0.12);
+	border: solid rgba(darken($color-green, 5%), 0.12) 1px;
+	color: darken($color-green, 5%);
+}
+.error-msg {
+	background: rgba($color-red, 0.1);
+	border: solid rgba(darken($color-red, 5%), 0.1) 1px;
+	color: darken($color-red, 2%);
+}
+.notice-msg,
+.note-msg {
+	background: rgba($color-gold, 0.15);
+	border: solid rgba(darken($color-gold, 5%), 0.2) 1px;
+	color: darken($color-gold, 20%);
+}

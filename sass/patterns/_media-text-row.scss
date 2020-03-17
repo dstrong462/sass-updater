@@ -1,0 +1,32 @@
+// ===== MEDIA TEXT ROWS
+// ================================================================================
+
+.wp-the-content {
+
+    .media-text-row {
+        margin-bottom: 60px;
+
+        * {
+            text-align: left;
+        }
+
+        .media {
+            margin-bottom: 30px;
+        }
+
+        @include bp($bp-col10) {
+
+            &.media-on-right .media {
+                float: right;
+                width: 50%;
+                margin-left: 30px;
+            }
+            
+            &.media-on-left .media {
+                float: left;
+                width: 50%;
+                margin-right: 30px;
+            }
+        }
+    }
+}

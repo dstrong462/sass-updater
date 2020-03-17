@@ -1,0 +1,68 @@
+
+// ===== PRODUCT LIST
+// ================================================================================
+
+.product-list {
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+.product-list-item {
+	position: relative;
+	padding: 0 10px;
+	font: normal 16px/1.25 $font-sans-serif;
+	.product-link {
+		color: inherit;
+		text-decoration: none;
+	}
+	.product-img {
+		display: block;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	.product-designer {
+		color: $color-slate;
+		font: 700 11px/1.25 $font-sans-serif;
+		text-transform: uppercase;
+	}
+	.product-name {
+		margin: 0;
+		color: inherit;
+		font: normal 12px/1.25 $font-serif;
+	}
+	.product-price {
+		margin-top: 5px;
+		color: $color-slate-dark;
+		font: 700 14px/1.25 $font-sans-serif;
+		text-transform: uppercase;
+		.regular-price {
+			color: $color-gray;
+			text-decoration: line-through;
+		}
+		&.has-special-price {
+			.final-price {
+				color: $color-red-lite;
+			}
+		}
+		.starting-at {
+			font: italic 10px/1 'Helvetica Neue', Arial, sans-serif;
+		}
+	}
+}
+@include bp($bp-col8) {
+	.product-list-item {
+		padding: 0 20px;
+		.product-designer {
+			font-size: 14px;
+		}
+		.product-name {
+			font-size: 13px;
+		}
+		.product-price {
+			font-size: 22px;
+			.regular-price {
+				font-size: 14px;
+			}
+		}
+	}
+}

@@ -1,0 +1,157 @@
+
+// ===== MAIN BODY
+// ================================================================================
+
+.body-main {
+	display: block;
+}
+.wp-the-content {
+	overflow: hidden;
+	> *:first-child {
+		margin-top: 0;
+	}
+	p {
+		text-align: center;
+		@include bp($bp-col8) { text-align: left; }
+	}
+	ul {
+		@extend .ul; // always display <ul> as a bulleted list within WP content
+	}
+}
+body.pg-internal .body-main {
+	.page-wrapper:first-child {
+		overflow: hidden;
+	}
+	.wp-the-content:first-child {
+		margin-top: 50px;
+	}
+}
+@include bp(max-width $bp-col4-max) {
+	.wp-page-content {
+		.alignleft,
+		.alignright {
+			float: none;
+			margin: 0;
+		}
+	}
+}
+// NOTE:
+// The following styles will not be compatible with the new design, however they
+// are necessary for the time being in order to minimize the width of the content area.
+// Once dynamic content areas (i.e. like on TriMark's site) are in place, the following
+// code will be obsolete.
+.wp-the-content {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+
+
+// ===== BODY SECTIONS
+// ================================================================================
+
+// Body sections with vertical padding
+.body-section-padded {
+	padding: 45px 0;
+    @include bp($bp-col8) { padding: 50px 0; }
+    @include bp($bp-col12) { padding: 75px 0; }
+}
+
+// Styled titles for content sections
+.body-section-title {
+	position: relative;
+	margin: 0 0 24px 0;
+	color: $color-slate;
+	font: normal 14px/1.25 $font-serif;
+	text-align: center;
+	text-transform: none;
+	* {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	.h6 {
+		display: inline-block;
+		padding: 0 5px;
+	}
+	&:after {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		display: block;
+		height: 2px;
+		width: 200px;
+		background: $color-gray-lite;
+		content: ' ';
+		transform: translateX(-50%);
+		z-index: -1;
+	}
+	@include bp($bp-col8) {
+		font-size: 24px;
+	}
+}
+
+// The body/content of a given section
+.body-section-content {
+	max-width: 920px;
+	margin: 0 auto;
+}
+
+
+
+// ===== PAGE LAYOUT - 2 COLUMN - BODY COLUMN RIGHT
+// ================================================================================
+
+.layout-col2-body-right {
+	margin-bottom: 40px;
+	overflow: hidden;
+}
+
+// Body Column First
+@include bp(max-width $bp-col4-max) {
+	.layout-col2-body-right.body-first {
+		.body-col-sidebar {
+			width: 100%;
+			max-width: 400px;
+			margin: 40px auto 0 auto;
+		}
+	}
+}
+@include bp($bp-col8) {
+	.layout-col2-body-right.body-first {
+		.body-col-fluid-wrapper {
+			float: right;
+			width: 100%;
+			margin-right: -280px;
+		}
+		.body-col-main {
+			margin-right: 280px;
+		}
+		.body-col-sidebar {
+			float: left;
+			width: 280px;
+			margin-top: 30px;
+			padding-right: 30px;
+		}
+	}
+}
+
+// Sidebar Column First
+@include bp(max-width $bp-col8-max) {
+	.layout-col2-body-right.sidebar-first {
+		.body-col-main {
+			margin: 40px auto 0 auto;
+		}
+	}
+}
+@include bp($bp-col12) {
+	.layout-col2-body-right.sidebar-first {
+		.body-col-sidebar {
+			float: left;
+			width: 280px;
+			padding-right: 30px;
+		}
+		.body-col-main {
+			margin-left: 280px;
+		}
+	}
+}

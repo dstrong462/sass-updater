@@ -1,0 +1,27 @@
+
+// ===== CONTACT US
+// ================================================================================
+
+.page-id-128 {
+	.contact-info-main {
+		.content-highlight-container {
+			> br {
+				display: none;
+			}
+			a[href*="tel:"] {
+				color: #FFFFFF;
+			}
+		}
+		.column:first-of-type {
+			margin-bottom: 20px;
+		}
+		.heading {
+			margin: 0 0 3px 0;
+		}
+		p {
+			margin-top: 0;
+		}
+	}
+}
+
+

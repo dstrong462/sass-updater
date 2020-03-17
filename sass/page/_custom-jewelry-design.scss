@@ -1,0 +1,445 @@
+// ===== BAILEY'S CUSTOM JEWELRY DESIGN
+// ================================================================================
+
+.page-id-205 {
+
+    // Page wide style changes
+    // ================================================
+    h3 {
+        color: $color-slate;
+        font-weight: 400;
+    }
+
+    .divider {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto 20px auto;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 1px;
+            background: #a09da0;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45px;
+            height: 100%;
+            background: #f4f4f4;
+        }
+        svg {
+            position: relative;
+            width: 30px;
+            max-height: 30px;
+            fill: #4c464d;
+            z-index: 1;
+        }
+    }
+
+
+    // Hero Area
+    // ================================================
+    .hero-wrapper {
+        margin-bottom: 0;
+    }
+
+
+    // Content area below hero
+    // ================================================
+    .wp-the-content {
+        max-width: 915px;
+        text-align: center;
+        padding: 50px 0;
+
+        @include bp($bp-col8) {
+            padding: 75px 0;
+        }
+
+        p {
+            font-size: 14px;
+            text-align: center;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+
+    // Split row of text and photo
+    // ================================================
+    .behind-the-jewelry {
+        margin-bottom: 20px;
+
+        @include bp($bp-col8) {
+            display: flex;
+            align-items: stretch;
+        }
+        .text-block {
+            color: #4c464d;
+            text-align: center;
+            background: #f4f4f4;
+            padding: 40px 20px;
+            margin-bottom: 20px;
+
+            @include bp($bp-col8) {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex: 1 0 auto;
+                width: 45%;
+                padding: 30px;
+                margin-bottom: 0;
+                margin-right: 20px;
+            }
+
+            @include bp($bp-col12) {
+                width: 45%;
+                padding: 40px 65px;
+            }
+
+            @include bp($bp-col16) {
+                width: 35%;
+                padding: 40px 85px;
+            }
+
+            .title {
+                font: 400 20px/1.1 $font-serif;
+                margin-bottom: 12px;
+
+                @include bp($bp-col12) {
+                    font-size: 26px;
+                }
+            }
+
+            p {
+                width: 100%;
+                max-width: 400px;
+                font: 700 14px/2 $font-sans-serif;
+                margin: 0 auto 15px auto;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+                @include bp($bp-col12) {
+                    font-size: 15px;
+                }
+                @include bp($bp-col16) {
+                    font-size: 16px;
+                }
+            }
+        }
+        .image-block {
+            width: 100%;
+            height: 400px;
+            background: #f4f4f4 url('../img/bg-people-behind-the-jewelry.jpg') center/cover no-repeat;
+            @include bp($bp-col8) {
+                height: 450px;
+            }
+            @include bp($bp-col12) {
+                height: 550px;
+            }
+        }
+    }
+
+
+    // Testimonials Block
+    // ================================================
+    .testimonials {
+        position: relative;
+        color: white;
+        text-align: center;
+        background: $color-red;
+        padding: 70px 30px;
+
+        @include bp($bp-col16) {
+            padding: 90px 30px;
+        }
+
+        .slider {
+            margin: 0 auto;
+            @include bp($bp-col8) {
+                max-width: 450px !important;
+            }
+            @include bp($bp-col12) {
+                width: 80%;
+                max-width: 900px !important;
+            }
+        }
+
+        .title {
+            position: relative;
+            font: 400 29px/1.2 $font-serif;
+            font-style: italic;
+            margin-bottom: 20px;
+
+            @include bp($bp-col12) {
+                font-size: 36px;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: -3px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 35%;
+                max-width: 250px;
+                height: 1px;
+                background: white;
+            }
+        }
+        .subtitle {
+            font: 700 15px/1.2 $font-sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .location {
+            font: 17px/1.2 $font-serif;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        .text {
+            font-size: 13px;
+            @include bp($bp-col8) {
+                font-size: 14px;
+            }
+            @include bp($bp-col12) {
+                font-size: 15px;
+            }
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.5;
+            padding: 15px;
+            z-index: 1;
+            transition: opacity 0.2s;
+
+            &:hover {
+                opacity: 0.75;
+            }
+
+            svg {
+                width: 14px;
+                height: auto;
+                fill: white;
+            }
+        }
+        .prev {
+            left: -5px;
+            @include bp($bp-col8) {
+                left: 6%;
+            }
+        }
+        .next {
+            right: -5px;
+            @include bp($bp-col8) {
+                right: 6%;
+            }
+        }
+    }
+
+
+    // Video Block
+    // ================================================
+    .video {
+        width: 100%;
+        max-width: 900px;
+        text-align: center;
+        margin: 75px auto;
+
+        @include bp($bp-col16) {
+            margin: 100px auto;
+        }
+
+        h3 {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+
+    // Steps Block
+    // ================================================
+    .steps {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        color: $color-slate;
+        font-family: $font-sans-serif;
+        text-align: center;
+        background: #f4f4f4;
+        padding: 50px 0;
+
+        @include bp($bp-col16) {
+            padding: 80px 0;
+        }
+
+        > .title {
+            flex: 1 0 100%;
+            width: 100%;
+            font: 300 30px/1.1 $font-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 0 25px;
+            margin-bottom: 40px;
+        }
+
+        .step {
+            width: 100%;
+            max-width: 300px;
+            padding: 0 25px;
+
+            @include bp($bp-col12) {
+                padding: 0 43px;
+            }
+
+            @include bp($bp-col16) {
+                max-width: 400px;
+                padding: 0 76px;
+            }
+
+            &:last-of-type .text {
+                margin-bottom: 0;
+            }
+
+            .title {
+                color: $color-red;
+                font-size: 16px;
+                line-height: 1;
+                text-transform: uppercase;
+                margin-bottom: 25px;
+            }
+            .divider {
+                margin-bottom: 25px;
+            }
+            .text {
+                font-size: 14px;
+                line-height: 1.45;
+                margin-bottom: 50px;
+
+                @include bp($bp-col12) {
+                    font-size: 15px;
+                }
+
+                @include bp($bp-col16) {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+
+    // Client Testimonials Block
+    // ================================================
+    .client-testimonials {
+        @extend .testimonials;
+        background: white;
+
+        .title {
+            color: $color-red;
+            font: 700 24px/1.2 $font-sans-serif;
+            font-style: normal;
+            text-transform: uppercase;
+
+            @include bp($bp-col12) {
+                font-size: 28px;
+            }
+
+            &:after {
+                background: $color-gray-lite;
+            }
+        }
+        .subtitle {
+            color: $color-gray-dark;
+        }
+        .text {
+            color: $color-gray-dark;
+        }
+        .next,
+        .prev {
+            svg {
+                fill: $color-gray-dark;
+            }
+        }
+    }
+
+
+    // Our Custom Work Slider
+    // ================================================
+    .custom-work-slider {
+        max-width: 1300px;
+        margin: 0 auto 100px auto;
+        .h6 {
+            @include bp($bp-col8) {
+                font-size: 38px;
+                margin-bottom: 0;
+            }
+        }
+        .slider-container {
+            position: relative;
+            .slider {
+                border: solid $color-smoke;
+                border-width: 0 2px;
+                .slide {
+                    display: block !important;
+                    border: solid $color-smoke;
+                    border-width: 4px 2px;
+                }
+            }
+            .prev,
+            .next {
+                cursor: pointer;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 50px;
+                background: rgba(black, 0.2);
+                z-index: 1;
+                @include bp($bp-col12) {
+                    width: 150px;
+                }
+                svg {
+                    width: 14px;
+                    height: auto;
+                    fill: white;
+                }
+            }
+            .prev {
+                left: 0;
+            }
+            .next {
+                right: 0;
+            }
+        }
+    }
+}

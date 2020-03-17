@@ -1,0 +1,106 @@
+/*
+ * Breakpoint / Media Query Helper
+ *
+ * This mixin helps to create media queries based on a given query parameter.
+ * Various syntaxes may be used for the query paramater.
+ *
+ * Logic:
+ * 1) If the query is a number, assume a min-width media query by default
+ * 2) If the query is a list ...
+ *    2a) If the first list item is a string, assume a feature/value pair (i.e. max-width 500px)
+ *    2b) If both values are numbers, assume a min-width/max-width pair
+ * 3) If the query is a map, assume one or more feature/value pairs (i.e. max-width 500px, or min-width 300px and max-width 400px)
+ *
+ * Examples of Use:
+ * @include bp(500px) {...}  =>  min-width: 500px
+ * @include bp(min-width 500px) {...}  =>  min-width: 500px
+ * @include bp(max-width 500px) {...}  =>  max-width: 500px
+ * @include bp(500px 750px) {...}  =>  min-width: 500px, max-width: 750px
+ * @include bp((min-width: 500px)) {...}  =>  min-width: 500px
+ * @include bp((max-width: 500px)) {...}  =>  max-width: 500px
+ * @include bp((min-width: 500px, max-width: 750px)) {...}  =>  max-width: 500px, max-width: 750px
+ *
+*/
+@mixin bp($query) {
+	// Analyze the type of query
+	$qtype: type-of($query);
+	// Query Type = Number
+	@if $qtype == number {
+		@media screen and (min-width: $query) {
+			@content;
+		}
+	}
+	// Query Type = List
+	@else if $qtype == list {
+		@if length($query) == 2 {
+			// Feature/Value Pair (i.e. max-width 500px)
+			@if (type-of(nth($query, 1)) == string) and (type-of(nth($query, 2)) == number) {
+				@media screen and (nth($query, 1): nth($query, 2)) {
+					@content;
+				}
+			}
+			// Min-Width / Max-Width
+			@if (type-of(nth($query, 1)) == number) and (type-of(nth($query, 2)) == number) {
+				@media screen and (min-width: nth($query, 1)) and (max-width: nth($query, 2)) {
+					@content;
+				}
+			}
+		}
+	}
+	// Query Type = Map
+	@else if $qtype == map {
+		$mq: '';
+		@each $key, $val in $query {
+			$mq: $mq + "and (#{$key}: #{$val}) "
+		}
+		@media screen #{$mq} {
+			@content;
+		}
+	}
+}
+
+
+/*
+ * Font Conversion Helper
+ *
+ * This Mixin will conver pixels units to rems.
+ *
+ */
+$pixelBase : 16;
+
+@function parseInt($n) {
+	@return $n / ($n * 0 + 1);
+}
+
+@function rem($values, $px-only: false){
+
+	$list: ();
+
+	@each $value in $values {
+
+		$unit : unit($value);
+		$val  : parseInt($value);
+
+		// FOR IE, needing to return pixels
+		@if ($px-only) and ($unit == 'rem') {
+			$list: append($list, ($val * $pixelBase) + px);
+		}
+
+		// Return REMs for everyone else
+		@else if($px-only == false) and ($unit == 'px'){
+			$list: append($list, ($val / $pixelBase + rem));
+		}
+
+		@else if($unit == 'px') or ($unit == 'rem'){
+			$list: append($list, $value);
+		}
+
+		@else {
+			@warn 'There is no unit conversion for #{$unit}';
+		}
+
+	}
+
+	@return $list(); /* 10 */
+
+}

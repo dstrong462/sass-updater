@@ -1,0 +1,68 @@
+// ===== BAILEY'S CUSTOM RING DESIGN
+// ================================================================================
+
+.page-id-1673 {
+    @extend .page-id-205;
+
+    .card-deck {
+        margin-bottom: 30px;
+        .card.size-half {
+            width: 100%;
+            @include bp(760px) {
+                width: 100%;
+            }
+            @include bp($bp-col12) {
+                width: 50%;
+            }
+        }
+        .card-body {
+            color: $color-slate-dark;
+            font-weight: 400;
+
+            @include bp($bp-col16) {
+                left: 50px;
+                right: 50px;
+            }
+
+            .card-title:after {
+                background: $color-slate-dark;
+            }
+
+            .card-subtitle {
+                width: 80%;
+                max-width: 360px;
+                font-size: 15px;
+                @include bp($bp-col12) {
+                    max-width: 310px;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .card-overlay {
+            background: linear-gradient(to right, white 0%, rgba(white, 0) 100%)
+        }
+    }
+
+    .footer-full-form {
+        .footer-content {
+            .title {
+                color: $color-slate-dark;
+                font-family: $font-serif;
+            }
+            p {
+                color: $color-slate-dark;
+                font-family: $font-sans-serif;    
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(to right, rgba(white, 0.8) 10%, rgba(white, 0) 75%);
+            }
+        }
+    }
+}

@@ -1,0 +1,243 @@
+
+// ===== DESKTOP locations
+// ====================================================
+
+.locations-desktop {
+    .locations {
+        display: flex;
+        align-items: stretch;
+        margin-bottom: 80px;
+    }
+
+    .location {
+        flex: 1;
+        position: relative;
+        background-color: lighten($color-smoke, 3%);
+        border-style: none;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+
+        &-image {
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            overflow: hidden;
+            padding-bottom: 80%;
+        }
+
+        &-name {
+            width: 100%;
+            color: $color-slate-dark;
+            font-size: 20px;
+            text-align: center;
+            padding: 20px 5px 12px 5px;
+
+            h4 {
+                font-size: 18px;
+                margin-bottom: 0;
+            }
+        }
+
+        &-active {
+            background-color: $color-smoke;
+
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: -25px;
+                left: 50%;
+                transform: rotate(45deg) translateX(-50%);
+                left: 50%;
+                width: 35px;
+                height: 35px;
+                background-color: $color-smoke;
+                z-index: -1;
+            }
+        }
+
+        &:focus {
+            outline-style: none;
+        }
+
+    }
+
+    // Hide location selector if not on desktop
+    @media (max-width: $bp-col12) {
+        display: none;
+    }
+
+}
+
+
+// ===== Main body location info
+// ====================================================
+
+.location-info {
+    display: none;
+    width: 100%;
+    color: $color-slate-dark;
+    background-color: $color-smoke;
+    padding: 50px 75px 30px 75px;
+    margin-top: -40px;
+    margin-bottom: 80px;
+
+    &-image {
+        display: none;
+    }
+
+    h1 {
+        font-size: 36px;
+
+        span {
+            &:before {
+                content: ' - ';
+            }
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    li {
+        background-size: 18px auto;
+        line-height: 24px;
+        padding: 3px 50px 3px 25px;
+    }
+
+    &-address {
+        background: url('https://www.baileybox.com/wp-content/themes/baileys/library/img/location-png.png') no-repeat left top;
+
+        a {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    }
+
+    &-hours {
+        background: url('https://www.baileybox.com/wp-content/themes/baileys/library/img/time-png.png') no-repeat left top;
+		.day {
+			display: inline-block;
+			width: 40px;
+		}
+    }
+
+    &-phone {
+        background: url('https://www.baileybox.com/wp-content/themes/baileys/library/img/contact-png.png') no-repeat left top;
+
+        a {
+            cursor: pointer;
+            text-decoration: underline !important;
+            &:hover {
+                color: $color-gray-dark;
+            }
+        }
+
+        button {
+            height: 45px;
+            font-size: 16px;
+            margin-top: 75px;
+        }
+    }
+}
+
+
+// ===== TABLET locations
+// ====================================================
+
+@media (max-width: $bp-col12) {
+
+    .location-info {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 60px 20px 20px 20px;
+        margin-bottom: 50px;
+
+        h1 {
+            font-size: 30px;
+            span {
+                display: block;
+                color: $color-gray-dark;
+                font-size: 18px;
+                margin-top: 5px;
+                &:before {
+                    content: none;
+                }
+            }
+        }
+
+        ul {
+            flex-direction: column;
+        }
+
+        li {
+            padding-right: 0;
+            margin-bottom: 20px;
+        }
+
+        .btn-white {
+            margin-top: 20px;
+        }
+
+        .btn-red {
+            margin-top: 40px;
+        }
+    }
+
+}
+
+@media (max-width: $bp-col12) and (min-width: $bp-col8) {
+
+    .location-info {
+        
+        &-image {
+            display: block;
+            width: 50%;
+            max-width: 300px;
+            height: 250px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0 50px auto 0;
+        }
+
+        .details {
+            width: 50%;
+            max-width: 300px;
+        }
+    }
+}
+
+
+// ===== MOBILE locations
+// ====================================================
+
+@media (max-width: $bp-col8) {
+
+    .location-info {
+        background-color: white;
+        border-bottom: 3px solid $color-smoke;
+
+        h1 {
+            font-size: 19px;
+            margin-bottom: 35px;
+
+            span {
+                font-size: 15px;
+            }
+        }
+
+        .btn-white {
+            outline: 1px solid $color-red;
+        }
+
+    }
+
+}

@@ -1,0 +1,403 @@
+
+// ===== PAGE:  ENGAGEMENT RINGS
+// ================================================================================
+
+.pg-engagement {
+	.hero-wrapper.hero-internal {
+		margin: 0;
+	}
+	.section-promos {
+		overflow: hidden;
+		margin-bottom: 40px;
+	}
+	.body-section-content {
+		padding-top: 50px;
+	}
+	.section-shop {
+		text-align: center;
+
+		.body-section-title {
+			color: $color-slate;
+			text-transform: uppercase;
+			margin-bottom: 0;
+
+			@include bp(max-width $bp-col8) {
+				font-size: 18px;
+			}
+
+			&:after {
+				content: none;
+			}
+		}
+
+		p {
+			color: $color-slate;
+			font-family: $font-sans-serif;
+			font-size: 17px;
+			line-height: 1.2;
+		}
+
+		.btn {
+			font-size: 15px;
+			@include bp($bp-col8) {
+				font-size: 18px;
+			}
+		}
+
+		// <hr> with centered diamond
+		.diamond {
+			position: relative;
+			width: 26px;
+			height: 26px;
+			background: transparent url('../svg/icon-diamond.svg') no-repeat center;
+			background-size: contain;
+			margin: 20px auto;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				transform: translateX(-50%);
+				width: 40px;
+				height: 26px;
+				background-color: white;
+				z-index: -1;
+			}
+
+			&:after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				width: 200px;
+				height: 2px;
+				background-color: #d9e0e1;
+				z-index: -2;
+			}
+		}
+	}
+}
+
+
+
+// ===== PAGE:  ENGAGEMENT RINGS - DESIGNER RINGS
+// ================================================================================
+
+.pg-engagement {
+	.section-designers {
+		text-align: center;
+		.slider {
+			position: relative;
+			max-width: 240px;
+			margin: 0 auto;
+		}
+		.ring {
+			font: 700 12px/1 $font-sans-serif;
+			text-transform: uppercase;
+			a {
+				color: inherit;
+				text-decoration: none;
+				&:hover {
+					color: $color-slate;
+				}
+			}
+			.img {
+				height: 148px;
+				width: 100%;
+				margin-bottom: 10px;
+				background-position: center center;
+				background-repeat: no-repeat;
+			}
+		}
+		.slider-ctrl {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 20px;
+			cursor: pointer;
+			svg {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 70%;
+				fill: $color-gray-lite;
+				transform: translate(-50%, -50%);
+			}
+		}
+		.slider-ctrl-prev {
+			left: -20px;
+		}
+		.slider-ctrl-next {
+			right: -20px;
+		}
+		.cta {
+			margin-top: 30px;
+		}
+		@include bp($bp-col8) {
+			.slider {
+				max-width: 480px;
+			}
+			.ring {
+				font-size: 16px;
+			}
+			.slider-ctrl {
+				width: 40px;
+				svg {
+					width: 50%;
+				}
+			}
+			.slider-ctrl-prev {
+				left: -60px;
+			}
+			.slider-ctrl-next {
+				right: -60px;
+			}
+		}
+		@include bp($bp-col12) {
+			.slider {
+				max-width: 720px;
+			}
+		}
+		@include bp($bp-col16) {
+			.slider {
+				max-width: 960px;
+			}
+		}
+	}
+}
+
+
+// ===== PAGE:  ENGAGEMENT RINGS - BRIDAL SURVEY CTA
+// ================================================================================
+
+.pg-engagement {
+
+	.section-bridal-survey-cta {
+		text-align: center;
+		background: $color-smoke;
+		padding: 25px 20px 45px 20px;
+		margin-bottom: 45px;
+
+		@include bp($bp-col12) {
+			padding: 35px 20px 55px 20px;
+		}
+
+		h2 {
+			display: inline-block;
+			background: url('../svg/icon-sparkle.svg') right bottom/contain no-repeat;
+			padding: 30px 15px 0 15px;
+			margin-bottom: 15px;
+
+			@include bp($bp-col8) {
+				padding: 35px 75px 0 75px;
+			}
+		}
+
+		p {
+			color: $color-slate;
+			font-size: 18px;
+			line-height: 1.5;
+			font-style: italic;
+
+			@include bp($bp-col8) {
+				font-size: 26px;
+			}
+		}
+
+		.btn {
+			font-size: 14px;
+			background: #b7ced8;
+
+			&:hover {
+				background: #a3c2cc;
+			}
+
+			@include bp($bp-col8) {
+				font-size: 18px;
+			}
+		}
+	}
+
+}
+
+
+// ===== PAGE:  ENGAGEMENT RINGS - SOCIAL SHARING
+// ================================================================================
+
+.pg-engagement {
+	.section-social {
+		text-align: center;
+		.body-section-content {
+			padding-bottom: 50px;
+		}
+		.slider {
+			position: relative;
+			img {
+				width: 100%;
+				max-width: none;
+			}
+		}
+		.slide {
+			display: block !important;
+		}
+		.slider-ctrl {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 40px;
+			cursor: pointer;
+			svg {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 30%;
+				fill: rgba(255,255,255,0.75);
+			}
+			&:hover svg {
+				fill: #FFFFFF;
+			}
+		}
+		.slider-ctrl-prev {
+			left: 0;
+			background: linear-gradient(to right, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 100%);
+			svg {
+				transform: translate(-70%, -50%);
+			}
+		}
+		.slider-ctrl-next {
+			right: 0;
+			background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.25) 100%);
+			svg {
+				transform: translate(-30%, -50%);
+			}
+		}
+		.hashtag {
+			margin-top: 5px;
+			margin-bottom: 7px;
+			color: $color-red;
+			font: 400 18px/1 $font-sans-serif;
+			text-transform: uppercase;
+			.inner {
+				position: relative;
+				display: inline-block;
+				padding-left: 30px;
+			}
+			i {
+				position: absolute;
+				top: -3px;
+				left: 0;
+				display: block;
+				height: 20px;
+				width: 20px;
+			}
+			svg {
+				fill: $color-red;
+			}
+		}
+		@include bp($bp-col8) {
+			.body-section-content {
+				padding-bottom: 75px;
+			}
+			.slider-ctrl {
+				width: 40px;
+			}
+			.hashtag {
+				font-size: 24px;
+				.inner {
+					padding-left: 36px;
+				}
+				i {
+					height: 26px;
+					width: 26px;
+				}
+			}
+		}
+		@include bp($bp-col12) {
+			.body-section-content {
+				padding-bottom: 100px;
+			}
+			.hashtag {
+				font-size: 30px;
+				.inner {
+					padding-left: 42px;
+				}
+				i {
+					height: 32px;
+					width: 32px;
+				}
+			}
+		}
+	}
+}
+
+
+
+// ===== PAGE:  ENGAGEMENT RINGS - HOW TO PICK YOUR RING
+// ================================================================================
+
+.pg-engagement {
+	.section-ring-selection {
+		text-align: center;
+		.body-section-content {
+			padding-bottom: 50px;
+			> *:last-child {
+				margin-bottom: 0;
+			}
+			@include bp($bp-col8) { padding-bottom: 75px; }
+			@include bp($bp-col12) { padding-bottom: 100px; }
+		}
+		.title {
+			margin-top: 0;
+		}
+	}
+}
+
+
+
+// ===== PAGE:  ENGAGEMENT RINGS - BUYING GUIDE
+// ================================================================================
+
+.pg-engagement {
+	.section-buying-guide {
+		padding-bottom: 45px;
+		text-align: center;
+		.title {
+			margin: 0 0 5px 0;
+		}
+		.subtitle {
+			padding-bottom: 15px;
+			margin: 0 0 30px 0;
+			border-bottom: solid $color-gray-lite 2px;
+			text-transform: lowercase;
+		}
+		.bullet {
+			display: inline-block;
+			padding: 0 5px;
+		}
+		.links {
+			max-width: 640px;
+			margin: 0 auto;
+			font: 700 16px/1 $font-sans-serif;
+			overflow: hidden;
+			text-transform: uppercase;
+		}
+		.link {
+			float: left;
+			width: 100%;
+			a {
+				display: block;
+				padding: 10px 0;
+				color: inherit;
+				text-decoration: none !important;
+				&:hover {
+					color: $color-slate;
+				}
+			}
+			@include bp($bp-col8) {
+				width: 50%;
+			}
+		}
+    }
+}

@@ -1,0 +1,39 @@
+
+// ===== PAGE:  DESIGNERS - ARCHIVE
+// ================================================================================
+
+.pg-designers-archive {
+	.wp-the-content {
+		text-align: center;
+	}
+	.card-deck {
+		margin-top: 30px;
+	}
+}
+
+
+
+// ===== PAGE:  DESIGNERS - SINGLE
+// ================================================================================
+
+.pg-designers-single {
+	.product-grid {
+		margin-top: 40px;
+	}
+	.body-section-title {
+		padding-bottom: 8px;
+		color: $color-gray-dark;
+		font: italic 18px/1 $font-serif;
+	}
+	.product-list {
+		margin-top: 30px !important;
+	}
+	.product-list-cta {
+		text-align: center;
+	}
+	@include bp($bp-col8) {
+		.body-section-title {
+			font-size: 26px;
+		}
+	}
+}

@@ -1,0 +1,348 @@
+
+// ===== GENERAL STYLES
+// ========================================================================
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+html,
+body {
+	overflow-x: hidden; // allows for breakout containers
+}
+html {
+	font-size: $default-font-size-html;
+}
+body, select, input, textarea {
+	margin: 0;
+	padding: 0;
+	background: #FFFFFF;
+	color: $default-font-color;
+	font-family: $default-font;
+	font-size: 93%;
+	@include bp($bp-col8){ font-size: 95%; }
+	@include bp($bp-col12){ font-size: 98%; }
+	@include bp($bp-col16){ font-size: 100%; }
+	font-weight: normal;
+	line-height: 1.625;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+
+// ===== ANCHOR TEXT / LINKS
+// ========================================================================
+
+a {
+	color: $color-red;
+	cursor: pointer;
+	text-decoration: underline;
+	&:hover {
+		text-decoration: none;
+	}
+	&[href*="tel:"] {
+		color: inherit;
+		cursor: default;
+		text-decoration: none !important;
+	}
+}
+
+
+
+// ===== HEADINGS
+// ========================================================================
+
+h1, h2, h3, h4, h5, h6 {
+	&.unformatted {
+		margin: inherit;
+		color: inherit;
+		font-family: inherit;
+		font-size: inherit;
+		font-weight: inherit;
+		line-height: inherit;
+	}
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	margin: 0 0 24px;
+	&.red {
+		color: $color-red;
+	}
+}
+h1, .h1 {
+	color: $color-slate;
+	font: 700 30px/1 $font-sans-serif;
+	text-transform: uppercase;
+}
+h2, .h2 {
+	color: $color-gray-dark;
+	font: italic 18px/1 $font-serif;
+}
+h3, .h3 {
+	color: $color-gray-dark;
+	font: 300 26px/1 $font-sans-serif;
+	text-transform: uppercase;
+}
+h4, .h4 {
+	color: $color-slate;
+	font: 700 18px/1 $font-sans-serif;
+	text-transform: uppercase;
+}
+h5, .h5 {
+	color: $color-red;
+	font: 400 18px/1 $font-sans-serif;
+	text-transform: uppercase;
+}
+h6, .h6 {
+	color: $color-slate-dark;
+	font: normal 35px/1 $font-cursive;
+}
+@include bp($bp-col8) {
+	h1, .h1 { font-size: 40px; }
+	h2, .h2 { font-size: 22px; }
+	h3, .h3 { font-size: 35px; }
+	h4, .h4 { font-size: 22px; }
+	h5, .h5 { font-size: 26px; }
+	h6, .h6 { font-size: 60px; }
+}
+@include bp($bp-col12) {
+	h1, .h1 { font-size: 50px; }
+	h2, .h2 { font-size: 26px; }
+	h3, .h3 { font-size: 40px; }
+	h4, .h4 { font-size: 26px; }
+	h5, .h5 { font-size: 30px; }
+	// h6, .h6 { font-size: 60px; }
+}
+
+
+
+// ===== EMBEDDED VIDEOS
+// ========================================================================
+
+// Vimeo
+.fitVidContainer {
+	position: relative;
+	padding-bottom: percentage(9/16);
+	iframe {
+		position: absolute;;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+	}
+}
+
+// YouTube
+.youtube-video-embed {
+	position: relative;
+	height: 0;
+	max-width: 100%;
+	margin-bottom: 20px;
+	// padding-bottom: 56.25%; // configured by the short code attributes
+	overflow: hidden;
+	iframe,
+	object,
+	embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+	}
+}
+
+
+
+// ===== HORIZONTAL RULE
+// ========================================================================
+
+hr {
+	margin: 40px 0;
+	height: 2px;
+	background: #d8e1e1;
+	border: none;
+}
+
+// <hr> with centered diamond
+hr.diamond {
+	position: relative;
+	width: 26px;
+	height: 26px;
+	background: transparent url('../svg/icon-diamond.svg') center/contain no-repeat;
+	margin: 20px auto;
+
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translate(-97px, -50%);
+		width: 85px;
+		height: 2px;
+		background-color: #a5a2a6;
+		z-index: -2;
+	}
+
+	&:after {
+		left: auto;
+		right: 0;
+		transform: translate(97px, -50%);
+	}
+}
+
+// <hr> with centered double quotation mark
+hr.quote {
+	position: relative;
+	width: 27px;
+	height: 20px;
+	background: transparent url('../svg/icon-double-quote.svg') center/contain no-repeat;
+	margin: 20px auto;
+
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 0;  
+		transform: translate(-97px, -50%);
+		width: 85px;
+		height: 2px;
+		background-color: #a5a2a6;
+		z-index: -2;
+	}
+
+	&:after {
+		left: auto;
+		right: 0;
+		transform: translate(97px, -50%);
+	}
+}
+
+
+
+// ===== IMAGES
+// ========================================================================
+
+picture {
+	display: block;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+
+
+
+// ===== PARAGRAPHS
+// ========================================================================
+
+p {
+	margin: 0 0 24px;
+	font-size: rem(16px);
+	line-height: rem(30px);
+}
+
+
+
+// ===== BOLD / STRONG TEXT
+// ========================================================================
+
+b, strong {
+	font-weight: 700;
+}
+
+
+
+// ===== HELPER CLASSES
+// ========================================================================
+
+.alignleft,
+.alignright {
+	display: block;
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 18px;
+}
+.no-margin { margin: 0 !important; }
+.no-padding { padding: 0 !important; }
+.no-display { display: none; }
+@include bp($bp-col8) {
+	.alignleft { float: left; margin-right: 20px; max-width: 50%;}
+	.alignright { float: right; margin-left: 20px; max-width: 50%; }
+}
+
+
+
+// ===== HELPER CLASSES - VISUALLY HIDDEN
+// ========================================================================
+
+// Useful for text that will be read by screen readers, but hidden to sighted users
+.visuallyhidden {
+	position: absolute;
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+
+
+
+// ===== BASIC COLUMNS
+// ========================================================================
+.column-row {
+	width: 100%;
+	margin: 0 auto 40px;
+	overflow: hidden;
+	@include bp($bp-col8){
+		.column {
+			width: 50%;
+			float: left;
+			padding: 1%;
+		}
+	}
+}
+
+// ===== CLEARFIX
+// ========================================================================
+
+%clear {
+	clear: both;
+}
+%clearfix:before,
+%clearfix:after {
+	content: " ";
+	display: table;
+}
+%clearfix:after {
+	clear: both;
+}
+.clearfix {
+	@extend %clearfix;
+}
+
+
+
+// ===== PAGE WRAPPER
+// ========================================================================
+
+.page-wrapper {
+	margin: 0 auto;
+	max-width: 1800px;
+	padding: 0 20px;
+	@include bp($bp-col12) {
+		padding: 0 40px;
+	}
+	&.small {
+		max-width: 800px;
+	}
+	&.medium {
+		max-width: 960px;
+	}
+}

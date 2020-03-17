@@ -1,0 +1,541 @@
+
+// ===== PAGE:  CHECKOUT
+// ================================================================================
+
+.opc-checkout {
+	max-width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+.opc {
+	margin: 0;
+	padding: 0;
+	background: $color-smoke;
+	border: solid $color-gray-lite 1px;
+	border-radius: 3px;
+	list-style: none;
+
+	// Step - Title
+	.step-title {
+		position: relative;
+		padding: 12px;
+		background: $color-smoke;
+		border-bottom: solid $color-gray-lite 1px;
+		border-radius: 2px;
+		.number {
+			position: absolute;
+			display: inline-block;
+			left: 12px;
+			top: 50%;
+			height: 20px;
+			width: 20px;
+			margin-top: -10px;
+			background: darken($color-smoke, 10%);
+			border-radius: 3px;
+			color: #FFFFFF;
+			font: 700 11px/22px $font-sans-serif;
+			text-align: center;
+		}
+		.name {
+			margin: 0;
+			padding-left: 30px;
+			color: $color-gray;
+			font: normal 14px/1 $font-serif;
+			text-transform: uppercase;
+		}
+		.edit-link {
+			float: right;
+			display: none;
+			color: $color-gray;
+			font: 700 10px/16px $font-sans-serif;
+			letter-spacing: 1px;
+			text-decoration: none;
+			text-transform: uppercase;
+			transition: color 0.2s ease;
+			&:hover {
+				color: $color-slate;
+			}
+			@include bp(max-width (479px)) {
+				display: none !important;
+			}
+		}
+	}
+	li:last-child {
+		.step-title {
+			border-bottom-width: 0;
+		}
+		.step {
+			border-bottom-width: 0;
+		}
+	}
+
+	// Step - Body
+	.step {
+		padding: 30px;
+		background: #FFFFFF;
+		border-bottom: solid $color-gray-lite 1px;
+		border-radius: 0 0 3px 3px;
+		h3 {
+			margin-top: 0;
+		}
+		.button-set {
+			margin-top: 20px;
+		}
+		.please-wait {
+			display: block;
+			font: normal 13px/1 $font-sans-serif;
+			margin-top: 10px;
+			img {
+				margin-right: 5px;
+				vertical-align: middle;
+			}
+		}
+	}
+
+	// Allowed Step
+	.allow {
+		.step-title {
+			cursor: pointer;
+			.number {
+				background: darken($color-smoke, 20%);
+			}
+			.name {
+				color: $color-slate;
+			}
+			.edit-link {
+				display: inline-block;
+			}
+		}
+	}
+
+	// Active Step
+	.active {
+		.step-title {
+			border-radius: 2px 2px 0 0;
+			.number {
+				background: $color-slate;
+			}
+			.edit-link {
+				display: none;
+			}
+		}
+	}
+
+	// Input Fields
+	.input-text,
+	select {
+		width: 100%;
+	}
+
+	// Disclaimer
+	.helper-link {
+		color: $color-gray-lite;
+		font-size: 13px;
+	}
+}
+
+
+
+// ===== CHECKOUT - STEP 1: CUSTOMER LOGIN
+// ================================================================================
+
+#opc-login {
+	.login-form-wrapper {
+		overflow: hidden;
+	}
+	.login-form-col {
+		float: left;
+		width: 100%;
+		.col-title {
+			margin: 0 0 20px 0;
+		}
+		&.col1 {
+			margin-bottom: 30px;
+			padding-bottom: 30px;
+			border-bottom: solid $color-smoke 1px;
+		}
+		&.col2 .form-row-submit {
+			margin-top: 20px;
+		}
+	}
+	#remember-me-box  {
+		label {
+			float: left;
+			margin-left: 8px;
+			line-height: 18px;
+		}
+	}
+	.link-tip {
+		clear: left;
+		display: block;
+		font-size: 12px;
+	}
+	@media (min-width: 480px) and (max-width: $bp-col4-max), (min-width: 800px) {
+		.login-form-wrapper.two-col {
+			.login-form-col {
+				width: 50%;
+			}
+			.col1 {
+				margin-bottom: 0;
+				padding-bottom: 0;
+				padding-right: 15px;
+				border-bottom: 0;
+			}
+			.col2 {
+				padding-left: 15px;
+			}
+		}
+	}
+}
+
+
+
+// ===== CHECKOUT - STEP 2: BILLING ADDRESS
+// ================================================================================
+
+#opc-billing {
+	.address-book select {
+		max-width: 100%;
+	}
+	.ship-to-control {
+		overflow: hidden;
+		label {
+			float: left;
+			display: inline-block;
+			margin-bottom: 0;
+			line-height: 20px;
+		}
+	}
+	.ship-to-same {
+		margin-bottom: 0;
+		margin-top: 20px;
+	}
+	.ship-to-different {
+		margin-top: 2px;
+	}
+}
+
+
+
+// ===== CHECKOUT - STEP 3: SHIPPING ADDRESS
+// ================================================================================
+
+#opc-shipping {
+	.address-book select {
+		max-width: 100%;
+	}
+	.bill-to-control {
+		overflow: hidden;
+		label {
+			float: left;
+			display: inline-block;
+			margin-bottom: 0;
+			line-height: 20px;
+		}
+	}
+}
+
+
+
+// ===== CHECKOUT - STEP 2/3: BILLING/SHIPPING ADDRESS FORM
+// ================================================================================
+
+.new-address-form {
+	.address-secondary-row {
+		margin-top: 4px;
+	}
+}
+
+
+
+// ===== CHECKOUT - STEP 4: SHIPPING METHODS
+// ================================================================================
+
+#opc-shipping_method {
+	.form-elem-checkradio label {
+		display: inline-block;
+		margin-bottom: 0;
+		line-height: 20px;
+	}
+	dl {
+		margin: 0;
+	}
+	dt {
+		display: none;
+	}
+	dd {
+		margin-left: 0;
+		margin-top: 5px;
+		li {
+			margin-bottom: 5px;
+		}
+	}
+	.price {
+		display: inline-block;
+		margin-left: 8px;
+		color: $color-slate;
+		&:before {
+			content: '(';
+		}
+		&:after {
+			content: ')';
+		}
+	}
+	.gift-message {
+		margin-top: 20px;
+		.title {
+			position: relative;
+			.checker {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			label {
+				margin-left: 26px;
+			}
+			.notice {
+				display: inline-block;
+				margin-left: 8px;
+				font-weight: 400;
+			}
+		}
+	}
+	.gift-message-form {
+		margin-top: 20px;
+	}
+}
+
+
+
+// ===== CHECKOUT - STEP 5: PAYMENT METHODS
+// ================================================================================
+
+#opc-payment {
+	.form-elem-checkradio {
+		position: relative;
+		.radio {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		label {
+			display: inline-block;
+			margin-bottom: 0;
+			margin-left: 26px;
+			line-height: 20px;
+		}
+	}
+	dd {
+		margin-left: 0;
+		padding-left: 26px;
+	}
+	ul {
+		margin: 10px 0 25px 0;
+	}
+	.selector,
+	.input-text {
+		max-width: 360px;
+	}
+	.exp-fields {
+		@extend %clearfix;
+	}
+	.exp-field {
+		float: left;
+	}
+	.exp-month {
+		width: 200px;
+		margin: 0 5px 5px 0;
+	}
+	.exp-year {
+		width: 100px;
+	}
+	.cvv {
+		width: 100px;
+	}
+}
+
+
+
+// ===== CHECKOUT - STEP 6: REVIEW
+// ================================================================================
+
+#opc-review {
+	&.active .step-title {
+		border-bottom-width: 1px;
+	}
+	.step {
+		padding: 30px 15px;
+	}
+	.cart-table-wrapper {
+		margin-bottom: 20px;
+		overflow: auto;
+	}
+	.cart-table {
+		margin-bottom: 0;
+		.cart-col-product {
+			.details {
+				margin-left: 0;
+			}
+		}
+		.totals-wrapper {
+			td {
+				padding: 4px 0;
+				border: 0;
+				line-height: 1.25;
+				text-align: right !important;
+				vertical-align: top;
+			}
+			.price {
+				padding-left: 8px;
+			}
+			tr:first-child td {
+				padding-top: 0;
+			}
+			tr:last-child td {
+				padding-bottom: 0;
+				font-size: 20px;
+				font-weight: normal;
+			}
+		}
+	}
+	.checkout-agreements {
+		@extend %clearfix;
+		margin: 0 0 10px 0;
+		padding: 0;
+		list-style: none;
+		.agreement-content {
+			display: none;
+		}
+		.agree {
+			float: right;
+			position: relative;
+			display: inline-block;
+			padding-left: 25px;
+			.checker {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			label {
+				margin-left: 0;
+			}
+		}
+	}
+	.button-set {
+		margin-top: 0;
+	}
+	.btn-checkout {
+		float: right;
+		width: 100%;
+		max-width: 350px;
+		margin-top: 0;
+	}
+}
+@include bp(max-width 480px) {
+	#opc-review {
+		.cart-table {
+			.cart-col-price {
+				padding-top: 0;
+			}
+			.totals-wrapper {
+				display: block;
+				td {
+					display: table-cell;
+					text-align: right;
+				}
+			}
+		}
+	}
+}
+
+
+
+// ===== CHECKOUT - PROGRESS BLOCK
+// ================================================================================
+
+.opc-block-progress {
+	display: none;
+	padding: 12px;
+	background: $color-smoke;
+	border: solid $color-gray-lite 1px;
+	border-radius: 3px;
+	.block-title {
+		color: $color-gray;
+		font: normal 22px/1 $font-serif;
+		margin-bottom: 15px;
+	}
+	dl {
+		margin: 0;
+	}
+	dt {
+		margin-bottom: 2px;
+		color: $color-gray-lite;
+		font: normal 14px/1.25 $font-serif;
+		text-transform: uppercase;
+		&.complete {
+			color: $color-gray;
+		}
+	}
+	dd {
+		color: lighten($color-gray-lite, 10%);
+		font: normal 13px/1.25 $font-sans-serif;
+		margin: 0;
+		&.complete {
+			margin-bottom: 12px;
+		}
+	}
+	.edit-link {
+		color: lighten($color-gray-lite, 10%);
+		display: none;
+		float: right;
+		font: 100 10px/14px $font-sans-serif;
+		letter-spacing: 1px;
+		text-decoration: none;
+		text-transform: uppercase;
+		&:hover {
+			color: $color-gray;
+		}
+	}
+	.complete .edit-link {
+		display: block;
+	}
+	.progress-shipping-method {
+		.price {
+			display: block;
+		}
+	}
+	.progress-payment {
+		p {
+			display: none;
+			margin: 0 0 5px 0;
+		}
+		th {
+			text-align: left;
+		}
+		td {
+			padding-bottom: 5px;
+		}
+		strong {
+			font-family: $font-sans-serif;
+			font-weight: normal;
+		}
+	}
+}
+@include bp($bp-col8) {
+	.opc-block-progress {
+		display: block;
+	}
+}
+
+
+
+// ===== CHECKOUT - SUCCESS
+// ================================================================================
+
+.pg-checkout-success {
+	padding: 60px 0 40px 0;
+	text-align: center;
+}
+

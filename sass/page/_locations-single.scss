@@ -1,0 +1,606 @@
+// ===== FLAGSHIP Location Page
+// ====================================================
+
+.pg-locations-single {
+
+    section {
+        padding: 50px 0;
+        @include bp($bp-col12) {
+            padding: 85px 0;
+        }
+    }
+
+    .btn {
+        font-weight: normal;
+        line-height: 2.25;
+        @include bp($bp-col12) {
+            font-size: 15px;
+        }
+        @include bp($bp-col16) {
+            font-size: 16px;
+        }
+    }
+
+    // Main hero image and title
+    .hero {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+		height: 420px;
+        width: 100%;
+        background: url('https://www.baileybox.com/wp-content/uploads/2018/03/cameron-village-desktop.jpg') center/cover no-repeat;
+
+        @include bp($bp-col12) {
+            height: 550px;
+        }
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background: rgba(0,0,0,0.4);
+			z-index: 2;
+        }
+
+        .hero-contents {
+            color: white;
+            text-align: center;
+            padding: 20px;
+            z-index: 3;
+            .title {
+                position: relative;
+                font: 37px/1.2 $font-cursive;
+                padding-bottom: 4px;
+                margin-bottom: 40px;
+                @include bp($bp-col8) {
+                    font-size: 40px;
+                }
+                @include bp($bp-col12) {
+                    font-size: 50px;
+                }
+                @include bp($bp-col16) {
+                    font-size: 60px;
+                }
+                &:after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 50%;
+                    max-width: 200px;
+                    height: 2px;
+                    background-color: rgba(white, 0.5);
+                }
+            }
+            .subtitle {
+                max-width: 675px;
+                font: 18px/1.25 $font-serif;
+                margin: 0 auto;
+
+                @include bp($bp-col12) {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+
+    // Container for .hero-info and .hero-map
+    .hero-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        @include bp($bp-col8) {
+            flex-direction: row;
+            align-items: stretch;
+        }
+    }
+
+    // Location details
+    .hero-info {
+        width: 100%;
+        color: $color-slate;
+        background-color: $color-smoke;
+        padding: 40px 20px;
+
+        @include bp($bp-col8) {
+            width: 50%;
+        }
+        @include bp($bp-col12) {
+            padding: 60px 40px;
+        }
+        @include bp($bp-col16) {
+            width: 55%;
+            padding: 75px 65px;
+        }
+
+        .store-name {
+            position: relative;
+            width: 100%;
+            font: 700 14px/1.5 $font-sans-serif;
+            text-transform: uppercase;
+            padding-bottom: 8px;
+            margin-bottom: 30px;
+
+            @include bp($bp-col12) {
+                font-size: 20px;
+                padding-bottom: 11px;
+                margin-bottom: 45px;
+            }
+            @include bp($bp-col16) {
+                font-size: 24px;
+                padding-bottom: 13px;
+            }
+
+            &:after {
+                position: absolute;
+                content: '';
+                bottom: 0;
+                left: 0;
+                width: 75%;
+                max-width: 400px;
+                height: 3px;
+                background-color: $color-slate;
+            }
+
+            span {
+                display: block;
+                color: $color-red;
+                font-family: $font-serif;
+                font-weight: normal;
+                text-transform: none;
+                @include bp($bp-col12) {
+                    display: initial;
+                }
+            }
+        }
+
+        .info-wrapper {
+            display: flex;
+            flex-direction: column;
+
+            @include bp($bp-col12) {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            @include bp($bp-col16) {
+                flex-wrap: nowrap;
+            }
+        }
+
+        .info-column {
+            max-width: 350px;
+            padding-right: 40px;
+
+            @include bp($bp-col16) {
+                width: 50%;
+            }
+
+            @include bp($bp-col18) {
+                width: auto;
+                padding-right: 50px;
+            }
+
+            &:not(:last-of-type) {
+                margin-bottom: 30px;
+            }
+
+            .title {
+                color: $color-red;
+                font: 14px/1.25 $font-sans-serif;
+                text-transform: uppercase;
+                margin-bottom: 15px;
+                @include bp($bp-col12) {
+                    font-size: 16px;
+                    margin-bottom: 20px;
+                }
+            }
+            .text {
+                font-size: 14px;
+                line-height: 1.5;
+                @include bp($bp-col12) {
+                    font-size: 16px;
+                }
+            }
+            .phone {
+                cursor: pointer;
+                display: block;
+                font-weight: bold;
+                background: url('../img/icon-phone-red.png') no-repeat left/auto 70%;
+                padding-left: 25px;
+                transition: color 0.2s;
+                @include bp($bp-col12) {
+                    font-size: 16px;
+                }
+                &:hover {
+                    color: $color-red;
+                }
+            }
+
+            &.management {
+                @include bp($bp-col16) {
+                    order: 1;
+                }
+            }
+        }
+    }
+
+    // Location map and directions
+    .hero-map {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        background-size: auto 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: background-size 0.5s ease;
+        &:hover {
+            background-size: auto 103%;
+        }
+        @include bp($bp-col8) {
+            width: 50%;
+            height: auto;
+        }
+
+        @include bp($bp-col16) {
+            width: 45%;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 100%;
+            text-align: center;
+            img {
+                display: block;
+                max-width: 34px;
+                margin: 0 auto 20px auto;
+            }
+        }
+    }
+
+    // Welcome Section
+    .welcome-content {
+        color: $color-slate;
+
+        .body-section-title {
+            font-size: 25px;
+
+            &:after {
+                content: none;
+            }
+
+            @include bp($bp-col12) {
+                font-size: 36px;
+            }
+        }
+
+        .content {
+            max-width: 900px;
+            text-align: center;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            max-width: 300px;
+            margin: 0 auto;
+
+            @include bp($bp-col12) {
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                max-width: none;
+            }
+
+            .btn {
+                margin-bottom: 20px;
+
+                @include bp($bp-col12) {
+                    margin: 15px;
+                }
+            }
+        }
+    }
+
+    // Featured Content Area
+    .featured-content {
+        color: $color-slate;
+        background: #f4f4f4;
+
+        .page-wrapper {
+            max-width: 1540px;
+            text-align: center;
+            overflow: visible !important;
+
+            @include bp($bp-col12) {
+                display: flex;
+                text-align: left;
+            }
+        }
+
+        .content {
+
+            @include bp($bp-col12) {
+                padding: 30px 60px 0 0;
+            }
+
+            @include bp($bp-col18) {
+                padding: 30px 75px 0 0;
+            }
+
+            .title {
+                position: relative;
+                display: inline-block;
+                font: 16px/1.25 $font-serif;
+                margin-bottom: 30px;
+
+                // Underline
+                @include bp($bp-col16) {
+                    font-size: 17px;
+                    margin-bottom: 40px;
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 1px;
+                        background: #d8e1e1;
+
+                        @include bp($bp-col18) {
+                            left: -40px;
+                        }
+
+                        @include bp(min-width 1750px) {
+                            left: -75px;
+                        }
+                    }
+                }
+
+                // Dark underline
+                .dark-underline {
+                    position: relative;
+                    &:after {
+                        content: none;
+                        position: absolute;
+                        bottom: -11px;
+                        left: 0;
+                        width: 100%;
+                        height: 1px;
+                        background: $color-gray-dark;
+                        z-index: 1;
+
+                        @include bp($bp-col18) {
+                            content: '';
+                        }
+                    }
+                }
+
+                // Fancy part
+                .middle {
+                    display: block;
+                    font-family: $font-cursive;
+                    font-size: 40px;
+
+                    @include bp($bp-col16) {
+                        display: inline-block;
+                        font-size: 41px;
+                        padding: 0 5px;
+                    }
+                }
+            }
+
+            .btn {
+                @include bp($bp-col12) {
+                    margin-top: 20px;
+                }
+            }
+        }
+
+        .images {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+
+            @include bp($bp-col12) {
+                flex: 1 0 auto;
+                width: 50%;
+                padding: 0;
+            }
+
+            @include bp($bp-col18) {
+                width: 55%;
+            }
+
+            .image {
+                width: 260px;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                border: 5px solid white;
+
+                &.left {
+                    transform: translateX(-2vw);
+                    height: 260px;
+
+                    @include bp($bp-col8) {
+                        transform: translateX(-40px);
+                        width: 500px;
+                        height: 400px;
+                    }
+
+                    @include bp($bp-col12) {
+                        transform: none;
+                        width: 100%;
+                        max-width: 600px;
+                        height: 400px;
+                    }
+
+                    @include bp($bp-col16) {
+                        height: 460px;
+                    }
+                }
+
+                &.right {
+                    position: relative;
+                    transform: translate(2vw, -40px);
+                    height: 240px;
+
+                    @include bp($bp-col8) {
+                        transform: translateX(115px);
+                        width: 350px;
+                        height: 380px;
+                        margin-top: -130px;
+                    }
+
+                    @include bp($bp-col12) {
+                        width: 100%;
+                        max-width: 320px;
+                        height: 380px;
+                    }
+
+                    @include bp($bp-col16) {
+                        max-width: 450px;
+                        height: 530px;
+                    }
+
+                    @include bp($bp-col18) {
+                        transform: none;
+                        margin: -265px 0 -190px auto;
+                    }
+                }
+            }
+        }
+    }
+
+    // Testimonials Section
+    .testimonials {
+        @include bp($bp-col18) {
+            padding-top: 200px;
+        }
+        .title {
+            color: $color-red;
+            font: 35px/1.1 $font-cursive;
+            text-align: center;
+            @include bp($bp-col12) {
+                font-size: 50px;
+            }
+            @include bp($bp-col16) {
+                font-size: 60px;
+            }
+        }
+        .slider,
+        .slider-ctrls {
+            max-width: 860px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .slider {
+            color: $color-slate-dark;
+            font: bold 17px/1.35 $font-sans-serif;
+            text-align: center;
+            margin-top: 30px;
+            @include bp($bp-col12) {
+                font-size: 19px;
+                margin-top: 55px;
+            }
+            @include bp($bp-col16) {
+                font-size: 22px;
+            }
+            .quote {
+                margin-bottom: 30px;
+                @include bp($bp-col12) {
+                    margin-bottom: 45px;
+                }
+            }
+            .author {
+                color: $color-red;
+            }
+        }
+        .slider-ctrls {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            @include bp($bp-col12) {
+                margin-top: 95px;
+            }
+        }
+        .slider-ctrls-inner {
+            position: relative;
+            padding: 0 40px;
+        }
+        .slider-ctrl {
+            position: absolute;
+            top: 50%;
+            display: flex;
+            height: 27px;
+            width: 15px;
+            margin-top: -13px;
+            background: url('../svg/icon-arrow-thick.svg') center/contain no-repeat;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            &:hover {
+                opacity: 0.65;
+            }
+            &.ctrl-prev {
+                left: 0;
+                transform: rotate(180deg);
+            }
+            &.ctrl-next {
+                right: 0;
+            }
+        }
+        .slider-pager {
+            .slick-dots {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                button {
+                    display: block;
+                    height: 19px;
+                    width: 19px;
+                    margin: 0 8px;
+                    background: white;
+                    border: 1px solid $color-red;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    outline: none;
+                    text-align: center;
+                    text-decoration: none;
+                    text-indent: 9999px;
+                    transition: background 0.2s;
+                }
+            }
+            .slick-active {
+                button {
+                    background: $color-red;
+                }
+            }
+        }
+    }
+}
+
+
+
+// Tweaks to Rocky Mount page
+
+.page-id-249 {
+    .hero {
+        background-position: 42% 50%;
+    }
+}
